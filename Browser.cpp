@@ -9,6 +9,9 @@ namespace Browser{
 		addResizeListener();
 		Canvas::initialize(Canvas::GAME, "gameCanvas");
 		Canvas::initialize(Canvas::HUD, "hudCanvas");
+		Canvas::scaleAttributes.setDevicePixelRatio(getDevicePixelRatio());
+		Canvas::updateScale(Browser::getWidth(), Browser::getHeight());
+		Canvas::applyScale(Canvas::GAME);
 	}
 
 	void clearScreen(){
@@ -29,7 +32,8 @@ namespace Browser{
 			return;
 		}
 		Canvas::fitToWindow(Canvas::GAME);
-		Canvas::fitToWindow(Canvas::HUD);
+		Canvas::updateScale(Browser::getWidth(), Browser::getHeight());
+		Canvas::applyScale(Canvas::GAME);
 	}
 	EMSCRIPTEN_BINDINGS(resize){
 		emscripten::function("resize", &resize);

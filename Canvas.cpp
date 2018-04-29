@@ -3,6 +3,8 @@
 #include "Canvas.h"
 
 namespace Canvas{
+	ScaleAttributes scaleAttributes;
+
 	void initialize(Layer layer, std::string name){
 		EM_ASM({
 			var ctx = document.getElementById(UTF8ToString($1)).getContext("2d");
@@ -15,8 +17,8 @@ namespace Canvas{
 		EM_ASM({
 			var ctx = contexts[$0];
 	        var canvas = ctx.canvas;
-	        ctx.clearRect(0, 0, canvas.width, canvas.height);
-		}, layer);
+	        ctx.clearRect(0, 0, $1, $2);
+		}, layer, Canvas::scaleAttributes.scaledWidth, Canvas::scaleAttributes.scaledHeight);
 	}
 
 	void fitToWindow(Layer layer){
@@ -28,6 +30,29 @@ namespace Canvas{
 			canvas.style.width = canvas.width / window.devicePixelRatio + "px";
 			canvas.style.height = canvas.height / window.devicePixelRatio + "px";
 		}, layer);
+	}
+
+	void updateScale(int browserWidth, int browserHeight){
+		scaleAttributes.optimalAspectRatio = 1366 / 768;
+		scaleAttributes.currentAspectRatio = static_cast<double>(browserWidth) / browserHeight;
+
+		scaleAttributes.scaleX = static_cast<double>(browserWidth) / 1366;
+		scaleAttributes.scaleY = static_cast<double>(browserHeight) / 768;
+
+		if(scaleAttributes.currentAspectRatio > scaleAttributes.optimalAspectRatio){
+			scaleAttributes.scaleY = scaleAttributes.scaleX;
+		}
+		else if(scaleAttributes.currentAspectRatio < scaleAttributes.optimalAspectRatio){
+			scaleAttributes.scaleX = scaleAttributes.scaleY;
+		}
+
+		scaleAttributes.scaledWidth = round(browserWidth / scaleAttributes.scaleX);
+		scaleAttributes.scaledHeight = round(browserHeight / scaleAttributes.scaleY);
+	}
+
+	void applyScale(Layer layer){
+		scale(layer, scaleAttributes.devicePixelRatio, scaleAttributes.devicePixelRatio);
+		scale(layer, scaleAttributes.scaleX, scaleAttributes.scaleY);
 	}
 
 	void scale(Layer layer, double scaleX, double scaleY){

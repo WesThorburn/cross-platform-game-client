@@ -1,15 +1,14 @@
 #include <iostream>
 #include "Player.h"
 #include "Canvas.h"
-#include "Browser.h" //Temporary until non-browser size x/y position limits are set
 
 int Player::idIncrement = 0;
 
 Player::Player(){
 	m_id = idIncrement;
 	++idIncrement;
-	m_x = rand() % Browser::getWidth();
-	m_y = rand() % Browser::getHeight();
+	m_x = rand() % 2000 + m_radius;
+	m_y = rand() % 2000 + m_radius;
 	m_spdX = (rand() % 14) - 7;
 	m_spdY = (rand() % 14) - 7;
 }
@@ -18,10 +17,10 @@ void Player::update(){
 	m_x += m_spdX;
 	m_y += m_spdY;
 
-	if(m_x < 0 || m_x > Browser::getWidth()){
+	if(m_x < m_radius || m_x > 2000 - m_radius){
 		m_spdX = -m_spdX;
 	}
-	if(m_y < 0 || m_y > Browser::getHeight()){
+	if(m_y < m_radius || m_y > 2000 - m_radius){
 		m_spdY = -m_spdY;
 	}
 }

@@ -7,6 +7,7 @@ void Game::initialize(){
 	Browser::initialize();
 	spawnStartingPlayers();
 	createMap();
+	createCamera();
 }
 
 void Game::clear(){
@@ -37,4 +38,9 @@ void Game::spawnStartingPlayers(){
 void Game::createMap(){
 	Map map = Map();
 	m_map = &map;
+}
+
+void Game::createCamera(){
+	Camera camera = Camera();
+	m_camera = &camera;
 }

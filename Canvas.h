@@ -6,11 +6,30 @@
 #include <math.h>
 
 namespace Canvas{
+	struct ScaleAttributes{ 
+		double optimalAspectRatio = 1366 / 768;
+		double currentAspectRatio = 0.0;
+		double scaleX = 0.0;
+		double scaleY = 0.0;
+		int scaledWidth = 0;
+		int scaledHeight = 0;
+		double devicePixelRatio = 0.0;
+
+		void setDevicePixelRatio(double ratio){
+			if(ratio < 1){
+				devicePixelRatio = 1.0;
+			}
+			devicePixelRatio = ratio;
+		}
+	};
+	extern ScaleAttributes scaleAttributes;
 	enum Layer{ GAME, HUD };
 
 	void initialize(Layer layer, std::string name);
 	void clear(Layer layer);
 	void fitToWindow(Layer layer);
+	void updateScale(int browserWidth, int browserHeight);
+	void applyScale(Layer layer);
 	void scale(Layer layer, double scaleX, double scaleY);
 	void setTransform(Layer layer, double hScale, double hSkew, double vSkew, double vScale, double hMove, double vMove);
 	void drawLine(Layer layer, int x1, int y1, int x2, int y2);
@@ -26,7 +45,6 @@ namespace Canvas{
 	void setStrokeStyle(Layer layer, int r, int g, int b);
 	void setFillStyle(Layer layer, int r, int g, int b);
 	void setGlobalAlpha(Layer layer, double globalAlpha);
-
 };
 
 #endif
