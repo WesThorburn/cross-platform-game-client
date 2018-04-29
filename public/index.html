@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Cross Platform</title>
+
+		<link rel="stylesheet" type="text/css" href="a.css"/>
+	</head>
+	<body oncontextmenu="return false;">
+		<canvas id="gameCanvas"></canvas>
+		<canvas id="hudCanvas"></canvas>
+		<script></script>
+		<script>
+			!function(e, t) {
+				console.log("Loading game client...");
+				var n = "a.wasm.js?2";
+				e.WebAssembly || (n = "a.js?2"), console.log("Script set to " + n);
+				var o = t.createElement("script");
+				o.async = !0, o.type = "text/javascript", o.src = n, o.onerror = function(t) {
+					console.error("Script Error"), console.error(t), setTimeout(function() {
+						e.location.reload(!0)
+					}, 3e3)
+				};
+				var r = t.getElementsByTagName("script")[0];
+				r.parentNode.insertBefore(o, r)
+			}(window, document);
+		</script>
+	</body>
+</html>
