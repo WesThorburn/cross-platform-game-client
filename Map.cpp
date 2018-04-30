@@ -1,5 +1,9 @@
+#include <iostream>
 #include "Map.h"
 #include "Canvas.h"
+
+const int Map::MAX_WIDTH = 10000;
+const int Map::MAX_HEIGHT = 10000;
 
 Map::Map(){}
 

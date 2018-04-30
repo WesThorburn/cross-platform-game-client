@@ -7,7 +7,7 @@ public:
 	void update();
 	void draw();
 private:
-	const int MAX_WIDTH = 10000, MAX_HEIGHT = 10000;
+	static const int MAX_WIDTH, MAX_HEIGHT;
 
 	void drawBackground();
 	void drawGridLines();
