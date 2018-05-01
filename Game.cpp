@@ -1,11 +1,13 @@
 #include <iostream>
 #include "Game.h"
 #include "Browser.h"
+#include "Controls.h"
 
 Game::Game(){}
 
 void Game::initialize(){
 	Browser::initialize();
+	Controls::initialize();
 	spawnStartingPlayers();
 	createMap();
 	createCamera();
