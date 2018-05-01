@@ -18,6 +18,9 @@ private:
 	int m_radius = 20;
 	double m_spdX = 0.0, m_spdY = 0.0;
 	Color m_color = {rand() % 255, rand() % 255, rand() % 255};
+
+	void updateSpeed();
+	void updateLocation();
 };
 
 #endif

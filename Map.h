@@ -10,7 +10,7 @@ public:
 	void update();
 	void draw(Camera& camera);
 private:
-	static const int MAX_WIDTH, MAX_HEIGHT;
+	static const int MAX_WIDTH, MAX_HEIGHT, OUTER_X_BUFFER, OUTER_Y_BUFFER;
 
 	void drawBackground(Camera& camera);
 	void drawGridLines(Camera& camera);

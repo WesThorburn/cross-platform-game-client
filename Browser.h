@@ -4,6 +4,7 @@
 namespace Browser{
 	void initialize();
 	void clearScreen();
+	void formatCanvas();
 	int getWidth();
 	int getHeight();
 	double getDevicePixelRatio();

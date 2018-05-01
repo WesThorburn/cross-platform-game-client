@@ -10,15 +10,16 @@ public:
 	int getWidth(){ return m_width; }
 	int getHeight(){ return m_height; }
 	Location getRelativeLocation(Location rawLocation);
-	void setXYOffset(int xOffset, int yOffset);
 private:
-	Location m_location = {1000, 1000};
-	double m_spdX = 2.5, m_spdY = 2.5;
+	Location m_location = {0, 0};
+	Location m_trackingLocation = {1000, 1000};
+	double m_spdX = 1.5, m_spdY = 1.5;
 	int m_width = 1366, m_height = 768;
-	int m_xOffset = 0, m_yOffset = 0;
+	int m_trackingXOffset = 0, m_trackingYOffset = 0;
 
 	void updateSpeed();
 	void updateLocation();
+	void updateTrackingOffsets();
 };
 
 #endif

@@ -32,17 +32,19 @@ namespace Canvas{
 		}, layer);
 	}
 
+	void updateAspectRatio(int browserWidth, int browserHeight){
+		scaleAttributes.nativeAspectRatio = static_cast<double>(scaleAttributes.NATIVE_WIDTH) / static_cast<double>(scaleAttributes.NATIVE_HEIGHT);
+		scaleAttributes.currentAspectRatio = static_cast<double>(browserWidth) / static_cast<double>(browserHeight);
+	}
+
 	void updateScale(int browserWidth, int browserHeight){
-		scaleAttributes.optimalAspectRatio = 1366 / 768;
-		scaleAttributes.currentAspectRatio = static_cast<double>(browserWidth) / browserHeight;
+		scaleAttributes.scaleX = static_cast<double>(browserWidth) / static_cast<double>(scaleAttributes.NATIVE_WIDTH);
+		scaleAttributes.scaleY = static_cast<double>(browserHeight) / static_cast<double>(scaleAttributes.NATIVE_HEIGHT);
 
-		scaleAttributes.scaleX = static_cast<double>(browserWidth) / 1366;
-		scaleAttributes.scaleY = static_cast<double>(browserHeight) / 768;
-
-		if(scaleAttributes.currentAspectRatio > scaleAttributes.optimalAspectRatio){
+		if(scaleAttributes.currentAspectRatio > scaleAttributes.nativeAspectRatio){
 			scaleAttributes.scaleY = scaleAttributes.scaleX;
 		}
-		else if(scaleAttributes.currentAspectRatio < scaleAttributes.optimalAspectRatio){
+		else if(scaleAttributes.currentAspectRatio < scaleAttributes.nativeAspectRatio){
 			scaleAttributes.scaleX = scaleAttributes.scaleY;
 		}
 

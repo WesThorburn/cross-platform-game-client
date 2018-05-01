@@ -6,8 +6,10 @@
 #include <math.h>
 
 namespace Canvas{
-	struct ScaleAttributes{ 
-		double optimalAspectRatio = 1366 / 768;
+	struct ScaleAttributes{
+		const int NATIVE_WIDTH = 1366;
+		const int NATIVE_HEIGHT = 768;
+		double nativeAspectRatio = 0.0;
 		double currentAspectRatio = 0.0;
 		double scaleX = 0.0;
 		double scaleY = 0.0;
@@ -28,6 +30,7 @@ namespace Canvas{
 	void initialize(Layer layer, std::string name);
 	void clear(Layer layer);
 	void fitToWindow(Layer layer);
+	void updateAspectRatio(int browserWidth, int browserHeight);
 	void updateScale(int browserWidth, int browserHeight);
 	void applyScale(Layer layer);
 	void scale(Layer layer, double scaleX, double scaleY);
