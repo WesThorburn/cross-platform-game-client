@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Game.h"
 #include "Browser.h"
 
@@ -15,32 +16,31 @@ void Game::clear(){
 }
 
 void Game::update(){
-	m_map->update();
+	m_map.update();
+	m_camera.update();
 	for(Player& player : m_players){
 		player.update();
 	}
 }
 
 void Game::draw(){
-	m_map->draw();
+	m_map.draw(m_camera);
 	for(Player& player : m_players){
-		player.draw();
+		player.draw(m_camera);
 	}
 }
 
 void Game::spawnStartingPlayers(){
-	for(int i = 0; i < 25; ++i){
+	for(int i = 0; i < 64; ++i){
 		Player player = Player();
 		m_players.push_back(player);
 	}
 }
 
 void Game::createMap(){
-	Map map = Map();
-	m_map = &map;
+	m_map = Map();
 }
 
 void Game::createCamera(){
-	Camera camera = Camera();
-	m_camera = &camera;
+	m_camera = Camera();
 }

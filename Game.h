@@ -14,8 +14,8 @@ public:
 	void update();
 	void draw();
 private:
-	Map* m_map;
-	Camera* m_camera;
+	Map m_map;
+	Camera m_camera;
 	std::vector<Player> m_players;
 
 	void spawnStartingPlayers();

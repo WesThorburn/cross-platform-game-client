@@ -1,16 +1,20 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include "Camera.h"
+#include "Location.h"
+
 class Map{
 public:
 	Map();
 	void update();
-	void draw();
+	void draw(Camera& camera);
 private:
 	static const int MAX_WIDTH, MAX_HEIGHT;
 
-	void drawBackground();
-	void drawGridLines();
+	void drawBackground(Camera& camera);
+	void drawGridLines(Camera& camera);
+	Location getRelativeMapOrigin(Camera& camera);
 };
 
 #endif

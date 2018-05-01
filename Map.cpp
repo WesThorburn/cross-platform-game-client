@@ -2,8 +2,8 @@
 #include "Map.h"
 #include "Canvas.h"
 
-const int Map::MAX_WIDTH = 10000;
-const int Map::MAX_HEIGHT = 10000;
+const int Map::MAX_WIDTH = 2000;
+const int Map::MAX_HEIGHT = 2000;
 
 Map::Map(){}
 
@@ -11,26 +11,33 @@ void Map::update(){
 
 }
 
-void Map::draw(){
-	drawBackground();
-	drawGridLines();
+void Map::draw(Camera& camera){
+	drawBackground(camera);
+	drawGridLines(camera);
 }
 
-void Map::drawBackground(){
+void Map::drawBackground(Camera& camera){
 	Canvas::setFillStyle(Canvas::GAME, 206, 206, 206);
-	Canvas::fillRect(Canvas::GAME, 0, 0, MAX_WIDTH, MAX_HEIGHT);
+	Location mapOrigin = getRelativeMapOrigin(camera);
+	Canvas::fillRect(Canvas::GAME, mapOrigin.x, mapOrigin.y, MAX_WIDTH, MAX_HEIGHT);
 }
 
-void Map::drawGridLines(){
+void Map::drawGridLines(Camera& camera){
 	Canvas::setLineWidth(Canvas::GAME, 1);
 	Canvas::setStrokeStyle(Canvas::GAME, 199, 199, 198);
 
+	Location mapOrigin = getRelativeMapOrigin(camera);
+
 	//Vertical Lines
-	for(int i = 0; i < MAX_WIDTH; i += 25){
-		Canvas::drawLine(Canvas::GAME, i, 0, i, MAX_HEIGHT);
+	for(int i = mapOrigin.x; i < mapOrigin.x + MAX_WIDTH; i += 20){
+		Canvas::drawLine(Canvas::GAME, i, mapOrigin.y, i, mapOrigin.y + MAX_HEIGHT);
 	}
 	//Horizontal Lines
-	for(int j = 0; j < MAX_HEIGHT; j += 25){
-		Canvas::drawLine(Canvas::GAME, 0, j, MAX_WIDTH, j);
+	for(int j = mapOrigin.y; j < mapOrigin.y + MAX_HEIGHT; j += 20){
+		Canvas::drawLine(Canvas::GAME, mapOrigin.x, j, mapOrigin.x + MAX_WIDTH, j);
 	}
+}
+
+Location Map::getRelativeMapOrigin(Camera& camera){
+	return camera.getRelativeLocation({0, 0});
 }
