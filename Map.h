@@ -9,6 +9,9 @@ public:
 	Map();
 	void update();
 	void draw(Camera& camera);
+
+	static int getMaxWidth(){ return MAX_WIDTH; }
+	static int getMaxHeight(){ return MAX_HEIGHT; }
 private:
 	static const int MAX_WIDTH, MAX_HEIGHT, OUTER_X_BUFFER, OUTER_Y_BUFFER;
 

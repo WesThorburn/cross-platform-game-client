@@ -25,7 +25,8 @@ protected:
 	double m_spdX = 0.0, m_spdY = 0.0;
 	Location m_location = {0, 0};
 	int m_radius = 20;
-	Color m_color = {243, 118, 118};
+	Color m_primaryColor = {243, 118, 118};
+	Color m_secondaryColor = {183, 87, 87};
 
 	void updateLocation();
 };

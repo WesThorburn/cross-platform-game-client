@@ -14,6 +14,8 @@ private:
 
 	void updateSpeed();
 	void updateLocation();
+	void resetSpeed();
+	void updateSpeedDueToControlInput();
 };
 
 #endif
