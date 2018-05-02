@@ -4,6 +4,8 @@
 #include "Controls.h"
 
 namespace Controls{
+	State state;
+
 	void initialize(){
 		EM_ASM(
 			document.onkeydown = function(event){
@@ -45,49 +47,99 @@ namespace Controls{
 	}
 
 	void onkeydown(int keyCode){
-		std::cout << "keydown: " << keyCode << std::endl;
+		switch(keyCode){
+			case 65: //a
+				state.pressingLeft = 1;
+				break;
+			case 68: //d
+				state.pressingRight = 1;
+				break;
+			case 87: //w
+				state.pressingUp = 1;
+				break;
+			case 83: //s
+				state.pressingDown = 1;
+				break;
+			case 37: //left
+				state.pressingLeft = 1;
+				break;
+			case 39: //right
+				state.pressingRight = 1;
+				break;
+			case 38: //up
+				state.pressingUp = 1;
+				break;
+			case 40: //down
+				state.pressingDown = 1;
+				break;
+		}
 	}
 	EMSCRIPTEN_BINDINGS(onkeydown){
 		emscripten::function("onkeydown", &onkeydown);
 	}
 
 	void onkeyup(int keyCode){
-		std::cout << "keyup: " << keyCode << std::endl;
+		switch(keyCode){
+			case 65: //a
+				state.pressingLeft = 0;
+				break;
+			case 68: //d
+				state.pressingRight = 0;
+				break;
+			case 87: //w
+				state.pressingUp = 0;
+				break;
+			case 83: //s
+				state.pressingDown = 0;
+				break;
+			case 37: //left
+				state.pressingLeft = 0;
+				break;
+			case 39: //right
+				state.pressingRight = 0;
+				break;
+			case 38: //up
+				state.pressingUp = 0;
+				break;
+			case 40: //down
+				state.pressingDown = 0;
+				break;
+		}
 	}
 	EMSCRIPTEN_BINDINGS(onkeyup){
 		emscripten::function("onkeyup", &onkeyup);
 	}
 	
 	void onmousemove(int clientX, int clientY){
-		std::cout << "mousemove: x: " << clientX << " y: " << clientY << std::endl;
+
 	}
 	EMSCRIPTEN_BINDINGS(onmousemove){
 		emscripten::function("onmousemove", &onmousemove);
 	}
 	
 	void onmousedown(int clientX, int clientY, int mouseKeyCode){
-		std::cout << "onmousedown: x: " << clientX << " y: " << clientY << " code: " << mouseKeyCode << std::endl;
+
 	}
 	EMSCRIPTEN_BINDINGS(onmousedown){
 		emscripten::function("onmousedown", &onmousedown);
 	}
 	
 	void onmouseup(int clientX, int clientY, int mouseKeyCode){
-		std::cout << "onmouseup: x: " << clientX << " y: " << clientY << " code: " << mouseKeyCode << std::endl;
+
 	}
 	EMSCRIPTEN_BINDINGS(onmouseup){
 		emscripten::function("onmouseup", &onmouseup);
 	}
 	
 	void onwheel(int deltaY){
-		std::cout << "scroll deltaY: " << deltaY << std::endl;
+
 	}
 	EMSCRIPTEN_BINDINGS(onwheel){
 		emscripten::function("onwheel", &onwheel);
 	}
 	
 	void onfocus(bool state){
-		std::cout << "onfocus: state" << state << std::endl;
+
 	}
 	EMSCRIPTEN_BINDINGS(onfocus){
 		emscripten::function("onfocus", &onfocus);

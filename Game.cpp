@@ -10,7 +10,9 @@ void Game::initialize(){
 	Controls::initialize();
 	spawnStartingPlayers();
 	createMap();
+	createActivePlayer();
 	createCamera();
+	setCameraTracking();
 }
 
 void Game::clear(){
@@ -19,17 +21,13 @@ void Game::clear(){
 
 void Game::update(){
 	m_map.update();
+	updatePlayers();
 	m_camera.update();
-	for(Player& player : m_players){
-		player.update();
-	}
 }
 
 void Game::draw(){
 	m_map.draw(m_camera);
-	for(Player& player : m_players){
-		player.draw(m_camera);
-	}
+	drawPlayers();
 }
 
 void Game::spawnStartingPlayers(){
@@ -43,6 +41,44 @@ void Game::createMap(){
 	m_map = Map();
 }
 
+void Game::createActivePlayer(){
+	m_activePlayer = ActivePlayer();
+}
+
 void Game::createCamera(){
 	m_camera = Camera();
+}
+
+void Game::setCameraTracking(){
+	m_camera.setTrackingPlayer(&m_activePlayer);
+}
+
+void Game::updatePlayers(){
+	updateActivePlayer();
+	updatePassivePlayers();
+}
+
+void Game::updateActivePlayer(){
+	m_activePlayer.update();
+}
+
+void Game::updatePassivePlayers(){
+	for(Player& player : m_players){
+		player.update();
+	}
+}
+
+void Game::drawPlayers(){
+	drawActivePlayer();
+	drawPassivePlayers();
+}
+
+void Game::drawActivePlayer(){
+	m_activePlayer.draw(m_camera);
+}
+
+void Game::drawPassivePlayers(){
+	for(Player& player : m_players){
+		player.draw(m_camera);
+	}
 }

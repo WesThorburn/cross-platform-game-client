@@ -19,7 +19,7 @@ void Player::update(){
 
 void Player::draw(Camera& camera){
 	Canvas::setFillStyle(Canvas::GAME, m_color.r, m_color.g, m_color.b);
-	Canvas::setStrokeStyle(Canvas::GAME, 114, 114, 114);
+	Canvas::setStrokeStyle(Canvas::GAME, 183, 87, 87);
 	Canvas::setLineWidth(Canvas::GAME, 3);
 
 	Location relativeLocation = camera.getRelativeLocation({m_location.x, m_location.y});
