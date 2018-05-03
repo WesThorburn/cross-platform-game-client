@@ -49,5 +49,5 @@ void Map::drawGridLines(Camera& camera){
 }
 
 Location Map::getRelativeMapOrigin(Camera& camera){
-	return camera.getRelativeLocation({0, 0});
+	return camera.getLocationOnScreen({0, 0});
 }

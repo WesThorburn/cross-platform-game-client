@@ -13,7 +13,7 @@ public:
 	void setTrackingPlayer(Player* trackingPlayer){ m_trackingPlayer = trackingPlayer; }
 	int getWidth(){ return m_width; }
 	int getHeight(){ return m_height; }
-	Location getRelativeLocation(Location rawLocation);
+	Location getLocationOnScreen(Location rawLocation);
 private:
 	Location m_location = {0, 0};
 	Player* m_trackingPlayer;

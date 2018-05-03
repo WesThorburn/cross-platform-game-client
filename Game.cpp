@@ -51,6 +51,7 @@ void Game::createCamera(){
 
 void Game::setCameraTracking(){
 	m_camera.setTrackingPlayer(&m_activePlayer);
+	m_activePlayer.setCamera(&m_camera);
 }
 
 void Game::updatePlayers(){

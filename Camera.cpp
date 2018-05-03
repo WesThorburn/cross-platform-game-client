@@ -10,7 +10,7 @@ void Camera::update(){
 	updateTrackingOffsets();
 }
 
-Location Camera::getRelativeLocation(Location rawLocation){
+Location Camera::getLocationOnScreen(Location rawLocation){
 	return {rawLocation.x - m_location.x, rawLocation.y - m_location.y};
 }
 

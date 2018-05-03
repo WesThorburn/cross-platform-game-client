@@ -1,4 +1,5 @@
 #include <iostream>
+#include <math.h>
 #include "ActivePlayer.h"
 #include "Controls.h"
 #include "Canvas.h"
@@ -12,21 +13,46 @@ ActivePlayer::ActivePlayer(): Player(){
 }
 
 void ActivePlayer::update(){
+	updateAngle();
 	updateSpeed();
 	updateLocation();
 }
 
 void ActivePlayer::draw(Camera& camera){
+	Location relativeLocation = camera.getLocationOnScreen({m_location.x, m_location.y});
+	drawBarrel(relativeLocation);
+	drawBody(relativeLocation);
+}
+
+void ActivePlayer::drawBody(Location relativeLocation){
 	Canvas::setFillStyle(Canvas::GAME, m_primaryColor.r, m_primaryColor.g, m_primaryColor.b);
 	Canvas::setStrokeStyle(Canvas::GAME, m_secondaryColor.r, m_secondaryColor.g, m_secondaryColor.b);
 	Canvas::setLineWidth(Canvas::GAME, 3);
-
-	Location relativeLocation = camera.getRelativeLocation({m_location.x, m_location.y});
 
 	Canvas::beginPath(Canvas::GAME);
 	Canvas::arc(Canvas::GAME, relativeLocation.x, relativeLocation.y, m_radius);
 	Canvas::fill(Canvas::GAME);
 	Canvas::stroke(Canvas::GAME);
+}
+
+void ActivePlayer::drawBarrel(Location relativeLocation){
+	int barrelLength = m_radius * 1.5;
+	double barrelTipX = relativeLocation.x + barrelLength * cos(m_angle);
+	double barrelTipY = relativeLocation.y + barrelLength * sin(m_angle);
+	Canvas::setLineWidth(Canvas::GAME, 16);
+	Canvas::setStrokeStyle(Canvas::GAME, 144, 144, 144);
+	Canvas::drawLine(Canvas::GAME, relativeLocation.x, relativeLocation.y, barrelTipX, barrelTipY);
+}
+
+void ActivePlayer::updateAngle(){
+	m_angle = calculateAngle();
+}
+
+double ActivePlayer::calculateAngle(){
+	Location playerScreenPosition = m_camera->getLocationOnScreen({m_location.x, m_location.y});
+	int deltaX = playerScreenPosition.x * Canvas::scaleAttributes.scaleX - Controls::state.cursorX;
+	int deltaY = playerScreenPosition.y * Canvas::scaleAttributes.scaleY - Controls::state.cursorY;
+	return atan2(deltaY, deltaX) + M_PI;
 }
 
 void ActivePlayer::updateSpeed(){

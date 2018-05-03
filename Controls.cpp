@@ -111,7 +111,8 @@ namespace Controls{
 	}
 	
 	void onmousemove(int clientX, int clientY){
-
+		state.cursorX = clientX;
+		state.cursorY = clientY;
 	}
 	EMSCRIPTEN_BINDINGS(onmousemove){
 		emscripten::function("onmousemove", &onmousemove);

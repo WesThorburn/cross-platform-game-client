@@ -23,7 +23,7 @@ void Player::draw(Camera& camera){
 	Canvas::setStrokeStyle(Canvas::GAME, m_secondaryColor.r, m_secondaryColor.g, m_secondaryColor.b);
 	Canvas::setLineWidth(Canvas::GAME, 3);
 
-	Location relativeLocation = camera.getRelativeLocation({m_location.x, m_location.y});
+	Location relativeLocation = camera.getLocationOnScreen({m_location.x, m_location.y});
 
 	Canvas::beginPath(Canvas::GAME);
 	Canvas::arc(Canvas::GAME, relativeLocation.x, relativeLocation.y, m_radius);
