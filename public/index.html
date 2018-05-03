@@ -17,7 +17,11 @@
 			!function(e, t) {
 				console.log("Loading game client...");
 				var n = "a.wasm.js?2";
-				e.WebAssembly || (n = "a.js?2"), console.log("Script set to " + n);
+				var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+				if(!e.WebAssembly || iOS){
+					n = "a.js?2"
+				}
+				console.log("Script set to " + n);
 				var o = t.createElement("script");
 				o.async = !0, o.type = "text/javascript", o.src = n, o.onerror = function(t) {
 					console.error("Script Error"), console.error(t), setTimeout(function() {
