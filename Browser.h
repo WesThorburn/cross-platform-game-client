@@ -12,6 +12,7 @@ namespace Browser{
 
 	void initialize();
 	void setAttributes();
+	void updateSize();
 	int getWidth();
 	int getHeight();
 	double getDevicePixelRatio();

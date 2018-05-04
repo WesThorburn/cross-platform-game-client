@@ -18,10 +18,14 @@ namespace Browser{
 	}
 
 	void setAttributes(){
-		attributes.width = getWidth();
-		attributes.height = getHeight();
+		updateSize();
 		attributes.devicePixelRatio = getDevicePixelRatio();
 		attributes.isMobile = isMobile();
+	}
+
+	void updateSize(){
+		attributes.width = getWidth();
+		attributes.height = getHeight();
 	}
 
 	int getWidth(){
@@ -49,6 +53,7 @@ namespace Browser{
 	}
 
 	void formatCanvas(){
+		updateSize();
 		Canvas::fitToWindow(Canvas::GAME);
 		Canvas::updateAspectRatio(attributes.width, attributes.height);
 		Canvas::updateScale(attributes.width, attributes.height);
