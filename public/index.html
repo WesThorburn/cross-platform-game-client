@@ -13,8 +13,9 @@
 		<canvas id="gameCanvas"></canvas>
 		<canvas id="hudCanvas" style="display:none;"></canvas>
 		<script></script>
+		<script src="isMobile.min.js"></script>
 		<script>
-			!function(e, t) {
+			!function(e, t){
 				console.log("Loading game client...");
 				var n = "a.wasm.js?2";
 				var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);

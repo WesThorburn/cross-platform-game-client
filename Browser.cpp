@@ -5,12 +5,22 @@
 #include "Canvas.h"
 
 namespace Browser{
+	Attributes attributes;
+
 	void initialize(){
+		setAttributes();
 		addResizeListener();
 		Canvas::initialize(Canvas::GAME, "gameCanvas");
 		Canvas::initialize(Canvas::HUD, "hudCanvas");
 		Canvas::scaleAttributes.setDevicePixelRatio(getDevicePixelRatio());
 		formatCanvas();
+	}
+
+	void setAttributes(){
+		attributes.width = getWidth();
+		attributes.height = getHeight();
+		attributes.devicePixelRatio = getDevicePixelRatio();
+		attributes.isMobile = isMobile();
 	}
 
 	void clearScreen(){
@@ -23,6 +33,12 @@ namespace Browser{
 		Canvas::updateAspectRatio(Browser::getWidth(), Browser::getHeight());
 		Canvas::updateScale(Browser::getWidth(), Browser::getHeight());
 		Canvas::applyScale(Canvas::GAME);
+	}
+
+	bool isMobile(){
+		return EM_ASM_INT({
+			return isMobile.any;	
+		});
 	}
 
 	void addResizeListener(){
