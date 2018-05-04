@@ -9,11 +9,12 @@ namespace Browser{
 
 	void initialize(){
 		setAttributes();
-		addResizeListener();
 		Canvas::initialize(Canvas::GAME, "gameCanvas");
 		Canvas::initialize(Canvas::HUD, "hudCanvas");
 		Canvas::scaleAttributes.setDevicePixelRatio(getDevicePixelRatio());
 		formatCanvas();
+		addResizeListener();
+		addOrientationChangeListener();
 	}
 
 	void setAttributes(){
@@ -23,22 +24,35 @@ namespace Browser{
 		attributes.isMobile = isMobile();
 	}
 
-	void clearScreen(){
-		Canvas::clear(Canvas::GAME);
-		Canvas::clear(Canvas::HUD);
+	int getWidth(){
+		return EM_ASM_INT({
+			return window.innerWidth;
+		});
 	}
 
-	void formatCanvas(){
-		Canvas::fitToWindow(Canvas::GAME);
-		Canvas::updateAspectRatio(Browser::getWidth(), Browser::getHeight());
-		Canvas::updateScale(Browser::getWidth(), Browser::getHeight());
-		Canvas::applyScale(Canvas::GAME);
+	int getHeight(){
+		return EM_ASM_INT({
+			return window.innerHeight;
+		});
+	}
+
+	double getDevicePixelRatio(){
+		return EM_ASM_DOUBLE({
+			return window.devicePixelRatio;
+		});
 	}
 
 	bool isMobile(){
 		return EM_ASM_INT({
 			return isMobile.any;	
 		});
+	}
+
+	void formatCanvas(){
+		Canvas::fitToWindow(Canvas::GAME);
+		Canvas::updateAspectRatio(attributes.width, attributes.height);
+		Canvas::updateScale(attributes.width, attributes.height);
+		Canvas::applyScale(Canvas::GAME);
 	}
 
 	void addResizeListener(){
@@ -59,21 +73,14 @@ namespace Browser{
 		emscripten::function("resize", &resize);
 	}
 
-	int getWidth(){
-		return EM_ASM_INT({
-			return window.innerWidth;
+	void addOrientationChangeListener(){
+		EM_ASM({
+			window.addEventListener('orientationchange', Module.resize());
 		});
 	}
 
-	int getHeight(){
-		return EM_ASM_INT({
-			return window.innerHeight;
-		});
-	}
-
-	double getDevicePixelRatio(){
-		return EM_ASM_DOUBLE({
-			return window.devicePixelRatio;
-		});
+	void clearScreen(){
+		Canvas::clear(Canvas::GAME);
+		Canvas::clear(Canvas::HUD);
 	}
 }
