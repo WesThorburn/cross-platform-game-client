@@ -10,6 +10,7 @@ void Game::initialize(){
 	Controls::initialize();
 	spawnStartingPlayers();
 	createMap();
+	createHud();
 	createActivePlayer();
 	createCamera();
 	setCameraTracking();
@@ -21,6 +22,7 @@ void Game::clear(){
 
 void Game::update(){
 	m_map.update();
+	m_hud.update();
 	updatePlayers();
 	m_camera.update();
 }
@@ -28,6 +30,7 @@ void Game::update(){
 void Game::draw(){
 	m_map.draw(m_camera);
 	drawPlayers();
+	m_hud.draw();
 }
 
 void Game::spawnStartingPlayers(){
@@ -39,6 +42,10 @@ void Game::spawnStartingPlayers(){
 
 void Game::createMap(){
 	m_map = Map();
+}
+
+void Game::createHud(){
+	m_hud = Hud();
 }
 
 void Game::createActivePlayer(){

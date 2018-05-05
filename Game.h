@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "ActivePlayer.h"
 #include "Map.h"
+#include "Hud.h"
 #include "Camera.h"
 
 class Game{
@@ -17,12 +18,14 @@ public:
 private:
 	Map m_map;
 	ActivePlayer m_activePlayer;
+	Hud m_hud;
 	Camera m_camera;
 	
 	std::vector<Player> m_players;
 
 	void spawnStartingPlayers();
 	void createMap();
+	void createHud();
 	void createActivePlayer();
 	void createCamera();
 	void setCameraTracking();
