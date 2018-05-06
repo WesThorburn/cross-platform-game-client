@@ -48,6 +48,11 @@ namespace Canvas{
 	void setStrokeStyle(Layer layer, int r, int g, int b);
 	void setFillStyle(Layer layer, int r, int g, int b);
 	void setGlobalAlpha(Layer layer, double globalAlpha);
+	void setTextAlign(Layer layer, std::string alignment);
+	void setTextBaseline(Layer layer, std::string alignment);
+	void setFontSize(Layer layer, int fontSize);
+	void fillText(Layer layer, std::string text, int x, int y);
+	void strokeText(Layer layer, std::string text, int x, int y);
 };
 
 #endif

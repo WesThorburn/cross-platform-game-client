@@ -2,6 +2,12 @@ body{
 	overflow: hidden;
 	margin:0;
 }
-#canvas{
+#gameCanvas, #hudCanvas{
 	position: absolute;
+}
+#gameCanvas{
+	z-index: 0;
+}
+#hudCanvas{
+	z-index: 1;
 }

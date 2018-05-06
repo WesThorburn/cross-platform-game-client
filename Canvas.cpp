@@ -153,4 +153,34 @@ namespace Canvas{
 			contexts[$0].globalAlpha = $1;
 		}, layer, globalAlpha);
 	}
+
+	void setTextAlign(Layer layer, std::string alignment){
+		EM_ASM_({
+			contexts[$0].textAlign = UTF8ToString($1);
+		}, layer, alignment.c_str());
+	}
+
+	void setTextBaseline(Layer layer, std::string textBaseline){
+		EM_ASM_({
+			contexts[$0].textBaseline = UTF8ToString($1);
+		}, layer, textBaseline.c_str());
+	}
+
+	void setFontSize(Layer layer, int fontSize){
+		EM_ASM_({
+			contexts[$0].font = $1 + "px 'Arial', sans-serif";
+		}, layer, fontSize);
+	}
+
+	void fillText(Layer layer, std::string text, int x, int y){
+		EM_ASM_({
+			contexts[$0].fillText(UTF8ToString($1), $2, $3);
+		}, layer, text.c_str(), x, y);
+	}
+
+	void strokeText(Layer layer, std::string text, int x, int y){
+		EM_ASM_({
+			contexts[$0].strokeText(UTF8ToString($1), $2, $3);
+		}, layer, text.c_str(), x, y);
+	}
 }
