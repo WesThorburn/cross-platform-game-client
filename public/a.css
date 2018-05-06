@@ -3,7 +3,10 @@ body{
 	margin:0;
 }
 #gameCanvas, #hudCanvas{
-	position: absolute;
+	height: 100%;
+    overflow: hidden;
+    width: 100%;
+	position: fixed;
 }
 #gameCanvas{
 	z-index: 0;
