@@ -10,8 +10,8 @@ public:
 	void update();
 	void draw();
 private:
-	int m_backingRadius = 60;
-	int m_stickRadius = 10;
+	int m_backingRadius = 90;
+	int m_stickRadius = 50;
 
 	void drawLeftStick();
 	void drawRightStick();

@@ -2,7 +2,6 @@
 #include "TouchControls.h"
 #include "Canvas.h"
 #include "Controls.h"
-#include "Browser.h"
 
 TouchControls::TouchControls(): HudElement(TOUCH_CONTROLS){
 	
@@ -22,8 +21,8 @@ void TouchControls::draw(){
 }
 
 void TouchControls::drawLeftStick(){
-	int xPos = Controls::state.leftTouchStickPosition.x * Browser::attributes.devicePixelRatio;
-	int yPos = Controls::state.leftTouchStickPosition.y * Browser::attributes.devicePixelRatio;
+	int xPos = Controls::state.leftTouchStickPosition.x / Canvas::scaleAttributes.scaleX;
+	int yPos = Controls::state.leftTouchStickPosition.y / Canvas::scaleAttributes.scaleY;
 
 	if(xPos == 0 && yPos == 0){
 		return;
@@ -36,8 +35,8 @@ void TouchControls::drawLeftStick(){
 }
 
 void TouchControls::drawRightStick(){
-	int xPos = Controls::state.rightTouchStickPosition.x * Browser::attributes.devicePixelRatio;
-	int yPos = Controls::state.rightTouchStickPosition.y * Browser::attributes.devicePixelRatio;
+	int xPos = Controls::state.rightTouchStickPosition.x / Canvas::scaleAttributes.scaleX;
+	int yPos = Controls::state.rightTouchStickPosition.y / Canvas::scaleAttributes.scaleY;
 
 	if(xPos == 0 && yPos == 0){
 		return;
