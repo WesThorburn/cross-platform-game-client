@@ -13,14 +13,6 @@ namespace Canvas{
 		fitToWindow(layer);
 	}
 
-	void clear(Layer layer){
-		EM_ASM({
-			var ctx = contexts[$0];
-	        var canvas = ctx.canvas;
-	        ctx.clearRect(0, 0, $1, $2);
-		}, layer, Canvas::scaleAttributes.scaledWidth, Canvas::scaleAttributes.scaledHeight);
-	}
-
 	void fitToWindow(Layer layer){
 		EM_ASM({
 			var ctx = contexts[$0];
@@ -29,6 +21,14 @@ namespace Canvas{
 			canvas.height = window.innerHeight * window.devicePixelRatio;
 			canvas.style.width = canvas.width / window.devicePixelRatio + "px";
 			canvas.style.height = canvas.height / window.devicePixelRatio + "px";
+		}, layer);
+	}
+
+	void clear(Layer layer){
+		EM_ASM({
+			var ctx = contexts[$0];
+	        var canvas = ctx.canvas;
+	        ctx.clearRect(0, 0, canvas.width, canvas.height);
 		}, layer);
 	}
 

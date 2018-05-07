@@ -3,7 +3,7 @@
 #include "Canvas.h"
 #include "Browser.h"
 
-DebugVariables::DebugVariables(): HudElement("debug", H_LEFT, V_TOP, 200, 100){
+DebugVariables::DebugVariables(): HudElement(DEBUG_VARIABLES){
 	std::cout << "created debug variables" << std::endl;
 }
 

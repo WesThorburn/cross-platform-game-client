@@ -7,6 +7,11 @@ namespace Controls{
 	State state;
 
 	void initialize(){
+		addKeyEventListeners();
+		addTouchEventListeners();
+	}
+
+	void addKeyEventListeners(){
 		EM_ASM(
 			document.onkeydown = function(event){
 				if(event.keyCode){
@@ -44,6 +49,68 @@ namespace Controls{
 				Module.onfocus(1);
 			};
 		);
+	}
+
+	void addTouchEventListeners(){
+		EM_ASM({
+			var hud = document.getElementById("hudCanvas");
+			hud.addEventListener("touchstart", touchStart, false);
+			hud.addEventListener("touchend", touchEnd, false);
+			hud.addEventListener("touchcancel", touchCancel, false);
+			hud.addEventListener("touchmove", touchMove, false);
+
+			function touchStart(e){
+				e.preventDefault();
+				for(var i = 0; i < e.changedTouches.length; i++){
+					var touch = e.changedTouches[i];
+					Module.touchStart(touch.identifier, touch.clientX, touch.clientY);
+				}
+			}
+
+			function touchEnd(e){
+				e.preventDefault();
+				console.log("touchend");
+			}
+
+			function touchCancel(e){
+				e.preventDefault();
+				console.log("touchcancel");
+			}
+
+			function touchMove(e){
+				e.preventDefault();
+				console.log("touchMove");
+			}
+		});
+	}
+
+	void touchStart(int identifier, int clientX, int clientY){
+		state.leftTouchStickPosition.x = clientX;
+		state.leftTouchStickPosition.y = clientY;
+	}
+	EMSCRIPTEN_BINDINGS(touchStart){
+		emscripten::function("touchStart", &touchStart);
+	}
+
+	void touchEnd(int identifier){
+		std::cout << "touchEnd" << std::endl;
+	}
+	EMSCRIPTEN_BINDINGS(touchEnd){
+		emscripten::function("touchEnd", &touchEnd);
+	}
+
+	void touchCancel(int identifier){
+		std::cout << "touchCancel" << std::endl;
+	}
+	EMSCRIPTEN_BINDINGS(touchCancel){
+		emscripten::function("touchCancel", &touchCancel);
+	}
+
+	void touchMove(int identifier){
+		std::cout << "touchMove" << std::endl;
+	}
+	EMSCRIPTEN_BINDINGS(touchMove){
+		emscripten::function("touchMove", &touchMove);
 	}
 
 	void onkeydown(int keyCode){

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Hud.h"
 #include "DebugVariables.h"
+#include "TouchControls.h"
 
 Hud::Hud(){
 	initializeElements();
@@ -9,6 +10,9 @@ Hud::Hud(){
 void Hud::initializeElements(){
 	HudElement* debugVariables = new DebugVariables();
 	m_elements.push_back(debugVariables);
+
+	TouchControls* touchControls = new TouchControls();
+	m_elements.push_back(touchControls);
 }
 
 void Hud::update(){

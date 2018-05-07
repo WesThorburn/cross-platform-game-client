@@ -55,9 +55,11 @@ namespace Browser{
 	void formatCanvas(){
 		updateSize();
 		Canvas::fitToWindow(Canvas::GAME);
+		Canvas::fitToWindow(Canvas::HUD);
 		Canvas::updateAspectRatio(attributes.width, attributes.height);
 		Canvas::updateScale(attributes.width, attributes.height);
 		Canvas::applyScale(Canvas::GAME);
+		//Canvas::applyScale(Canvas::HUD);
 	}
 
 	void addResizeListener(){
