@@ -11,7 +11,6 @@ namespace Browser{
 		setAttributes();
 		Canvas::initialize(Canvas::GAME, "gameCanvas");
 		Canvas::initialize(Canvas::HUD, "hudCanvas");
-		Canvas::scaleAttributes.setDevicePixelRatio(getDevicePixelRatio());
 		formatCanvas();
 		addResizeListener();
 		addOrientationChangeListener();
@@ -41,9 +40,13 @@ namespace Browser{
 	}
 
 	double getDevicePixelRatio(){
-		return EM_ASM_DOUBLE({
+		double devicePixelRatio = EM_ASM_DOUBLE({
 			return window.devicePixelRatio;
 		});
+		if(devicePixelRatio < 1){
+			devicePixelRatio = 1.0;
+		}
+		return devicePixelRatio;
 	}
 
 	bool isMobile(){
@@ -59,7 +62,7 @@ namespace Browser{
 		Canvas::updateAspectRatio(attributes.width, attributes.height);
 		Canvas::updateScale(attributes.width, attributes.height);
 		Canvas::applyScale(Canvas::GAME);
-		//Canvas::applyScale(Canvas::HUD);
+		Canvas::applyScale(Canvas::HUD);
 	}
 
 	void addResizeListener(){

@@ -1,6 +1,7 @@
 #include <emscripten.h>
 #include <iostream>
 #include "Canvas.h"
+#include "Browser.h"
 
 namespace Canvas{
 	ScaleAttributes scaleAttributes;
@@ -28,8 +29,8 @@ namespace Canvas{
 		EM_ASM({
 			var ctx = contexts[$0];
 	        var canvas = ctx.canvas;
-	        ctx.clearRect(0, 0, canvas.width, canvas.height);
-		}, layer);
+	        ctx.clearRect(0, 0, $1, $2);
+		}, layer, scaleAttributes.scaledWidth, scaleAttributes.scaledHeight);
 	}
 
 	void updateAspectRatio(int browserWidth, int browserHeight){
@@ -53,7 +54,7 @@ namespace Canvas{
 	}
 
 	void applyScale(Layer layer){
-		scale(layer, scaleAttributes.devicePixelRatio, scaleAttributes.devicePixelRatio);
+		scale(layer, Browser::attributes.devicePixelRatio, Browser::attributes.devicePixelRatio);
 		scale(layer, scaleAttributes.scaleX, scaleAttributes.scaleY);
 	}
 

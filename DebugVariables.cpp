@@ -21,6 +21,6 @@ void DebugVariables::draw(){
 	Canvas::fillText(Canvas::HUD, "Scale Height: " + std::to_string(Canvas::scaleAttributes.scaledHeight), 4, 64);
 	Canvas::fillText(Canvas::HUD, "X Scale: " + std::to_string(Canvas::scaleAttributes.scaleX), 4, 81);
 	Canvas::fillText(Canvas::HUD, "Y Scale: " + std::to_string(Canvas::scaleAttributes.scaleY), 4, 98);
-	Canvas::fillText(Canvas::HUD, "Pixel Ratio: " + std::to_string(Canvas::scaleAttributes.devicePixelRatio), 4, 115);
+	Canvas::fillText(Canvas::HUD, "Pixel Ratio: " + std::to_string(Browser::attributes.devicePixelRatio), 4, 115);
 	Canvas::fillText(Canvas::HUD, "isMobile: " + std::to_string(Browser::attributes.isMobile), 4, 132);
 }

@@ -15,14 +15,6 @@ namespace Canvas{
 		double scaleY = 0.0;
 		int scaledWidth = 0;
 		int scaledHeight = 0;
-		double devicePixelRatio = 0.0;
-
-		void setDevicePixelRatio(double ratio){
-			if(ratio < 1){
-				devicePixelRatio = 1.0;
-			}
-			devicePixelRatio = ratio;
-		}
 	};
 	extern ScaleAttributes scaleAttributes;
 	enum Layer{ GAME, HUD };
