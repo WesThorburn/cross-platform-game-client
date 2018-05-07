@@ -69,7 +69,10 @@ namespace Controls{
 
 			function touchEnd(e){
 				e.preventDefault();
-				console.log("touchend");
+				for(var i = 0; i < e.changedTouches.length; i++){
+					var touch = e.changedTouches[i];
+					Module.touchEnd(touch.identifier);
+				}
 			}
 
 			function touchCancel(e){
@@ -79,21 +82,35 @@ namespace Controls{
 
 			function touchMove(e){
 				e.preventDefault();
-				console.log("touchMove");
+				for(var i = 0; i < e.changedTouches.length; i++){
+					var touch = e.changedTouches[i];
+					Module.touchMove(touch.identifier, touch.clientX, touch.clientY);
+				}
 			}
 		});
 	}
 
 	void touchStart(int identifier, int clientX, int clientY){
-		state.leftTouchStickPosition.x = clientX;
-		state.leftTouchStickPosition.y = clientY;
+		if(identifier < 0 || identifier > 1){
+			return;
+		}
+		TouchPoint* touchPoint = &state.touchPoints.at(identifier);
+		touchPoint->startLocation.x = clientX;
+		touchPoint->startLocation.y = clientY;
+		touchPoint->isActive = 1;
 	}
 	EMSCRIPTEN_BINDINGS(touchStart){
 		emscripten::function("touchStart", &touchStart);
 	}
 
 	void touchEnd(int identifier){
-		std::cout << "touchEnd" << std::endl;
+		if(identifier < 0 || identifier > 1){
+			return;
+		}
+		TouchPoint* touchPoint = &state.touchPoints.at(identifier);
+		touchPoint->startLocation = {0, 0};
+		touchPoint->currentLocation = {0, 0};
+		touchPoint->isActive = 0;
 	}
 	EMSCRIPTEN_BINDINGS(touchEnd){
 		emscripten::function("touchEnd", &touchEnd);
@@ -106,8 +123,13 @@ namespace Controls{
 		emscripten::function("touchCancel", &touchCancel);
 	}
 
-	void touchMove(int identifier){
-		std::cout << "touchMove" << std::endl;
+	void touchMove(int identifier, int clientX, int clientY){
+		if(identifier < 0 || identifier > 1){
+			return;
+		}
+		TouchPoint* touchPoint = &state.touchPoints.at(identifier);
+		touchPoint->currentLocation.x = clientX;
+		touchPoint->currentLocation.y = clientY;
 	}
 	EMSCRIPTEN_BINDINGS(touchMove){
 		emscripten::function("touchMove", &touchMove);

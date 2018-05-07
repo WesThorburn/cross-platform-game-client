@@ -5,6 +5,13 @@
 #include "Location.h"
 
 namespace Controls{
+	struct TouchPoint{
+		int identifier = -1;
+		Location startLocation = {0, 0};
+		Location currentLocation = {0, 0};
+		bool isActive = 0;
+	};
+
 	struct State{
 		bool pressingLeft = 0;
 		bool pressingRight = 0;
@@ -15,10 +22,7 @@ namespace Controls{
 		bool leftClicking = 0;
 		bool rightClicking = 0;
 		bool focus = 1;
-		Location leftTouchStickPosition = {0, 0};
-		int leftTouchStickIdentifier = -1;
-		Location rightTouchStickPosition = {0, 0};
-		int rightTouchStickIdentifier = -1;
+		std::vector<TouchPoint> touchPoints = {{},{}}; //Max 2 points tracked
 	};
 	extern State state;
 
@@ -28,7 +32,7 @@ namespace Controls{
 	void touchStart(int identifier, int clientX, int clientY);
 	void touchEnd(int identifier);
 	void touchCancel(int identifier);
-	void touchMove(int identifier);
+	void touchMove(int identifier, int clientX, int clientY);
 	void onkeydown(int keyCode);
 	void onkeyup(int keyCode);
 	void onmousemove(int clientX, int clientY);
