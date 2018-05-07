@@ -2,6 +2,7 @@
 #include "DebugVariables.h"
 #include "Canvas.h"
 #include "Browser.h"
+#include "Controls.h"
 
 DebugVariables::DebugVariables(): HudElement(DEBUG_VARIABLES){
 	std::cout << "created debug variables" << std::endl;
@@ -23,4 +24,14 @@ void DebugVariables::draw(){
 	Canvas::fillText(Canvas::HUD, "Y Scale: " + std::to_string(Canvas::scaleAttributes.scaleY), 4, 98);
 	Canvas::fillText(Canvas::HUD, "Pixel Ratio: " + std::to_string(Browser::attributes.devicePixelRatio), 4, 115);
 	Canvas::fillText(Canvas::HUD, "isMobile: " + std::to_string(Browser::attributes.isMobile), 4, 132);
+
+	Canvas::fillText(Canvas::HUD, "Stick One", 200, 13);
+	Canvas::fillText(Canvas::HUD, "Screen X: " + std::to_string(Controls::state.touchPoints.at(0).currentLocation.x), 200, 30);
+	Canvas::fillText(Canvas::HUD, "Screen Y: " + std::to_string(Controls::state.touchPoints.at(0).currentLocation.y), 200, 47);
+	Canvas::fillText(Canvas::HUD, "Active: " + std::to_string(Controls::state.touchPoints.at(0).isActive), 200, 64);
+
+	Canvas::fillText(Canvas::HUD, "Stick Two", 330, 13);
+	Canvas::fillText(Canvas::HUD, "Screen X: " + std::to_string(Controls::state.touchPoints.at(1).currentLocation.x), 330, 30);
+	Canvas::fillText(Canvas::HUD, "Screen Y: " + std::to_string(Controls::state.touchPoints.at(1).currentLocation.y), 330, 47);
+	Canvas::fillText(Canvas::HUD, "Active: " + std::to_string(Controls::state.touchPoints.at(1).isActive), 330, 64);
 }

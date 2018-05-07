@@ -29,10 +29,10 @@ void TouchControls::processTouchPoint(Controls::TouchPoint* touchPoint){
 	if(!touchPoint->isActive){
 		return;
 	}
-	if(touchPoint->startLocation.x <= Canvas::scaleAttributes.scaledWidth / 2){
+	if(touchPoint->startLocation.x <= Canvas::scaleAttributes.scaledWidth * Canvas::scaleAttributes.scaleX / 2){
 		updateLeftStick(touchPoint);
 	}
-	else if(touchPoint->startLocation.x > Canvas::scaleAttributes.scaledWidth / 2){
+	else if(touchPoint->startLocation.x > Canvas::scaleAttributes.scaledWidth * Canvas::scaleAttributes.scaleX / 2){
 		updateRightStick(touchPoint);
 	}
 }
@@ -107,7 +107,6 @@ void TouchControls::drawLeftStick(){
 	if(m_leftStickAngleRadians == 0.0){
 		return;
 	}
-	std::cout << "m_leftStickAngleRadians: " << m_leftStickAngleRadians << std::endl;
 	Location leftStickBacking = getLeftStickBackingPosition();
 	int xPos = leftStickBacking.x + cos(m_leftStickAngleRadians) * m_backingRadius;
 	int yPos = leftStickBacking.y + sin(m_leftStickAngleRadians) * m_backingRadius;
