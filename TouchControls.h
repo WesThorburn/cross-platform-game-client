@@ -11,6 +11,9 @@ public:
 
 	void update();
 	void draw();
+
+	double getLeftStickAngleRadians(){ return m_leftStickAngleRadians; }
+	double getRightStickAngleRadians(){ return m_rightStickAngleRadians; }
 private:
 	int m_backingRadius = 100;
 	int m_stickRadius = 50;
@@ -27,6 +30,8 @@ private:
 	void drawRightStickBacking();
 	Location getLeftStickBackingPosition();
 	Location getRightStickBackingPosition();
+	void updateMovementControlInput();
+	void resetMovementControls();
 	void drawStickBacking(int xPos, int yPos);
 	void drawSticks();
 	void drawLeftStick();

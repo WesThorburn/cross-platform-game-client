@@ -9,6 +9,7 @@ TouchControls::TouchControls(): HudElement(TOUCH_CONTROLS){
 
 void TouchControls::update(){
 	resetSticks();
+	resetMovementControls();
 	updateSticks();
 }
 
@@ -42,6 +43,7 @@ void TouchControls::updateLeftStick(Controls::TouchPoint* touchPoint){
 	int deltaX = backingPosition.x - (touchPoint->currentLocation.x / Canvas::scaleAttributes.scaleX);
 	int deltaY = backingPosition.y - (touchPoint->currentLocation.y / Canvas::scaleAttributes.scaleY);
 	m_leftStickAngleRadians = atan2(deltaY, deltaX) + M_PI;
+	updateMovementControlInput();
 }
 
 void TouchControls::updateRightStick(Controls::TouchPoint* touchPoint){
@@ -63,6 +65,44 @@ Location TouchControls::getRightStickBackingPosition(){
 		(Canvas::scaleAttributes.scaledWidth / 6) * 5, 
 		(Canvas::scaleAttributes.scaledHeight/12) * 11
 	};
+}
+
+void TouchControls::updateMovementControlInput(){
+	if(m_leftStickAngleRadians >= 5.89 || m_leftStickAngleRadians < 0.393){ //337.5 -> 22.5
+		Controls::state.pressingRight = 1;
+	}
+	else if(m_leftStickAngleRadians >= 0.393 && m_leftStickAngleRadians < 1.178){ //22.5 -> 67.5
+		Controls::state.pressingRight = 1;
+		Controls::state.pressingDown = 1;
+	}
+	else if(m_leftStickAngleRadians >= 1.178 && m_leftStickAngleRadians < 1.963){ //67.5 -> 112.5
+		Controls::state.pressingDown = 1;
+	}
+	else if(m_leftStickAngleRadians >= 1.963 && m_leftStickAngleRadians < 2.749){ //112.5 -> 157.5
+		Controls::state.pressingDown = 1;
+		Controls::state.pressingLeft = 1;
+	}
+	else if(m_leftStickAngleRadians >= 2.749 && m_leftStickAngleRadians < 3.534){ //157.5 -> 202.5
+		Controls::state.pressingLeft = 1;
+	}
+	else if(m_leftStickAngleRadians >= 3.534 && m_leftStickAngleRadians < 4.32){ //202.5 -> 247.5
+		Controls::state.pressingUp = 1;
+		Controls::state.pressingLeft = 1;
+	}
+	else if(m_leftStickAngleRadians >= 4.32 && m_leftStickAngleRadians < 5.105){ //247.5 -> 292.5
+		Controls::state.pressingUp = 1;
+	}
+	else if(m_leftStickAngleRadians >= 5.105 && m_leftStickAngleRadians < 5.89){ //292.5 -> 337.5
+		Controls::state.pressingUp = 1;
+		Controls::state.pressingRight = 1;
+	}
+}
+
+void TouchControls::resetMovementControls(){
+	Controls::state.pressingLeft = 0;
+	Controls::state.pressingRight = 0;
+	Controls::state.pressingUp = 0;
+	Controls::state.pressingDown = 0;
 }
 
 void TouchControls::draw(){
