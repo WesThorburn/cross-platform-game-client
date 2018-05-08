@@ -6,9 +6,14 @@
 namespace Controls{
 	State state;
 
-	void initialize(){
-		addKeyEventListeners();
-		addTouchEventListeners();
+	void initialize(bool enableMobile){
+		if(enableMobile){
+			state.touchEnabled = 1;
+			addTouchEventListeners();
+		}
+		else{
+			addKeyEventListeners();
+		}
 	}
 
 	void addKeyEventListeners(){

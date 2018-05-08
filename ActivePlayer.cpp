@@ -45,7 +45,12 @@ void ActivePlayer::drawBarrel(Location relativeLocation){
 }
 
 void ActivePlayer::updateAngle(){
-	m_angle = calculateAngle();
+	if(Controls::state.touchEnabled){
+		m_angle = Controls::state.inputAngleRadians;
+	}
+	else{
+		m_angle = calculateAngle();
+	}
 }
 
 double ActivePlayer::calculateAngle(){

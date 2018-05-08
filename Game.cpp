@@ -7,7 +7,7 @@ Game::Game(){}
 
 void Game::initialize(){
 	Browser::initialize();
-	Controls::initialize();
+	Controls::initialize(Browser::attributes.isMobile);
 	spawnStartingPlayers();
 	createMap();
 	createHud();

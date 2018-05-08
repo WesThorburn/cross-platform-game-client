@@ -8,8 +8,10 @@ TouchControls::TouchControls(): HudElement(TOUCH_CONTROLS){
 }
 
 void TouchControls::update(){
-	resetSticks();
-	updateSticks();
+	if(Controls::state.touchEnabled){
+		resetSticks();
+		updateSticks();
+	}
 }
 
 void TouchControls::resetSticks(){
@@ -46,6 +48,7 @@ void TouchControls::updateRightStick(Controls::TouchPoint* touchPoint){
 	int deltaX = backingPosition.x - (touchPoint->currentLocation.x / Canvas::scaleAttributes.scaleX);
 	int deltaY = backingPosition.y - (touchPoint->currentLocation.y / Canvas::scaleAttributes.scaleY);
 	m_rightStickAngleRadians = atan2(deltaY, deltaX) + M_PI;
+	updateAngleControlInput();
 }
 
 Location TouchControls::getLeftStickBackingPosition(){
@@ -92,6 +95,10 @@ void TouchControls::updateMovementControlInput(){
 		Controls::state.pressingUp = 1;
 		Controls::state.pressingRight = 1;
 	}
+}
+
+void TouchControls::updateAngleControlInput(){
+	Controls::state.inputAngleRadians = m_rightStickAngleRadians;
 }
 
 void TouchControls::draw(){

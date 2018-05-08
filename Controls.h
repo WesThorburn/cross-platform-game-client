@@ -21,11 +21,13 @@ namespace Controls{
 		bool leftClicking = 0;
 		bool rightClicking = 0;
 		bool focus = 1;
+		bool touchEnabled = 0;
 		std::vector<TouchPoint> touchPoints = {};
+		double inputAngleRadians = 0.0;
 	};
 	extern State state;
 
-	void initialize();
+	void initialize(bool enableMobile);
 	void addKeyEventListeners();
 	void addTouchEventListeners();
 	void touchStart(int identifier, int clientX, int clientY);
