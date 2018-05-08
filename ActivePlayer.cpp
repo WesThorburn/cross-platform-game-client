@@ -80,16 +80,29 @@ void ActivePlayer::resetSpeed(){
 }
 
 void ActivePlayer::updateSpeedDueToControlInput(){
+	double speed = getMovementSpeedStrength();
+
 	if(Controls::state.pressingLeft){
-		m_spdX = -m_defaultSpeed;
+		m_spdX = -speed;
 	}
 	if(Controls::state.pressingRight){
-		m_spdX = m_defaultSpeed;
+		m_spdX = speed;
 	}
 	if(Controls::state.pressingUp){
-		m_spdY = -m_defaultSpeed;
+		m_spdY = -speed;
 	}
 	if(Controls::state.pressingDown){
-		m_spdY = m_defaultSpeed;
+		m_spdY = speed;
 	}
+}
+
+double ActivePlayer::getMovementSpeedStrength(){
+	double speed = m_defaultSpeed;
+	if(Controls::state.movementInputStrength == Controls::WEAK){
+		return speed *= 0.3;
+	}
+	else if(Controls::state.movementInputStrength == Controls::MEDIUM){
+		return speed *= 0.6;
+	}
+	return speed;
 }

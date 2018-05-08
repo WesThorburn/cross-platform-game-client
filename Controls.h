@@ -11,6 +11,8 @@ namespace Controls{
 		Location currentLocation = {0, 0};
 	};
 
+	enum InputStrength{ WEAK, MEDIUM, STRONG };
+
 	struct State{
 		bool pressingLeft = 0;
 		bool pressingRight = 0;
@@ -24,6 +26,7 @@ namespace Controls{
 		bool touchEnabled = 0;
 		std::vector<TouchPoint> touchPoints = {};
 		double inputAngleRadians = 0.0;
+		InputStrength movementInputStrength = STRONG;
 	};
 	extern State state;
 

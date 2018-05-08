@@ -36,19 +36,44 @@ void TouchControls::processTouchPoint(Controls::TouchPoint* touchPoint){
 }
 
 void TouchControls::updateLeftStick(Controls::TouchPoint* touchPoint){
-	Location backingPosition = getLeftStickBackingPosition();
-	int deltaX = backingPosition.x - (touchPoint->currentLocation.x / Canvas::scaleAttributes.scaleX);
-	int deltaY = backingPosition.y - (touchPoint->currentLocation.y / Canvas::scaleAttributes.scaleY);
-	m_leftStickAngleRadians = atan2(deltaY, deltaX) + M_PI;
+	m_leftStickAngleRadians = getAngleRadians(getLeftStickBackingPosition(), touchPoint->currentLocation);
+	m_leftStickInputDistance = getInputDistance(getLeftStickBackingPosition(), touchPoint->currentLocation);
+	updateMovementInputStrength();
 	updateMovementControlInput();
 }
 
 void TouchControls::updateRightStick(Controls::TouchPoint* touchPoint){
-	Location backingPosition = getRightStickBackingPosition();
-	int deltaX = backingPosition.x - (touchPoint->currentLocation.x / Canvas::scaleAttributes.scaleX);
-	int deltaY = backingPosition.y - (touchPoint->currentLocation.y / Canvas::scaleAttributes.scaleY);
-	m_rightStickAngleRadians = atan2(deltaY, deltaX) + M_PI;
+	m_rightStickAngleRadians = getAngleRadians(getRightStickBackingPosition(), touchPoint->currentLocation);
+	m_rightStickInputDistance = getInputDistance(getRightStickBackingPosition(), touchPoint->currentLocation);
 	updateAngleControlInput();
+}
+
+double TouchControls::getAngleRadians(Location backingLocation, Location touchLocation){
+	int deltaX = backingLocation.x - (touchLocation.x / Canvas::scaleAttributes.scaleX);
+	int deltaY = backingLocation.y - (touchLocation.y / Canvas::scaleAttributes.scaleY);
+	return atan2(deltaY, deltaX) + M_PI;
+}
+
+int TouchControls::getInputDistance(Location backingLocation, Location touchLocation){
+	int deltaX = backingLocation.x - (touchLocation.x / Canvas::scaleAttributes.scaleX);
+	int deltaY = backingLocation.y - (touchLocation.y / Canvas::scaleAttributes.scaleY);
+	int distance = sqrt(pow(deltaX, 2) + pow(deltaY, 2));
+	if(distance > m_backingRadius){
+		distance = m_backingRadius;
+	}
+	return distance;
+}
+
+void TouchControls::updateMovementInputStrength(){
+	if(m_leftStickInputDistance < m_backingRadius * 0.4){
+		Controls::state.movementInputStrength = Controls::WEAK;
+	}
+	else if(m_leftStickInputDistance < m_backingRadius * 0.8){
+		Controls::state.movementInputStrength = Controls::MEDIUM;
+	}
+	else{
+		Controls::state.movementInputStrength = Controls::STRONG;
+	}
 }
 
 void TouchControls::updateMovementControlInput(){
@@ -146,8 +171,8 @@ void TouchControls::drawLeftStick(){
 		return;
 	}
 	Location leftStickBacking = getLeftStickBackingPosition();
-	int xPos = leftStickBacking.x + cos(m_leftStickAngleRadians) * m_backingRadius;
-	int yPos = leftStickBacking.y + sin(m_leftStickAngleRadians) * m_backingRadius;
+	int xPos = leftStickBacking.x + cos(m_leftStickAngleRadians) * m_leftStickInputDistance;
+	int yPos = leftStickBacking.y + sin(m_leftStickAngleRadians) * m_leftStickInputDistance;
 	drawStick(xPos, yPos);
 }
 
@@ -156,8 +181,8 @@ void TouchControls::drawRightStick(){
 		return;
 	}
 	Location rightStickBacking = getRightStickBackingPosition();
-	int xPos = rightStickBacking.x + cos(m_rightStickAngleRadians) * m_backingRadius;
-	int yPos = rightStickBacking.y + sin(m_rightStickAngleRadians) * m_backingRadius;
+	int xPos = rightStickBacking.x + cos(m_rightStickAngleRadians) * m_rightStickInputDistance;
+	int yPos = rightStickBacking.y + sin(m_rightStickAngleRadians) * m_rightStickInputDistance;
 	drawStick(xPos, yPos);
 }
 

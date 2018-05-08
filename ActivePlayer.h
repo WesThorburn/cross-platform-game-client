@@ -24,6 +24,7 @@ private:
 	void updateLocation();
 	void resetSpeed();
 	void updateSpeedDueToControlInput();
+	double getMovementSpeedStrength();
 };
 
 #endif
