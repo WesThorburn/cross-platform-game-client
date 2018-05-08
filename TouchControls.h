@@ -25,13 +25,13 @@ private:
 	void processTouchPoint(Controls::TouchPoint* touchPoint);
 	void updateLeftStick(Controls::TouchPoint* touchPoint);
 	void updateRightStick(Controls::TouchPoint* touchPoint);
+	void updateMovementControlInput();
+	void updateAngleControlInput();
 	void drawStickBackings();
 	void drawLeftStickBacking();
 	void drawRightStickBacking();
 	Location getLeftStickBackingPosition();
 	Location getRightStickBackingPosition();
-	void updateMovementControlInput();
-	void updateAngleControlInput();
 	void drawStickBacking(int xPos, int yPos);
 	void drawSticks();
 	void drawLeftStick();

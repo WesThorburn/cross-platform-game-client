@@ -51,20 +51,6 @@ void TouchControls::updateRightStick(Controls::TouchPoint* touchPoint){
 	updateAngleControlInput();
 }
 
-Location TouchControls::getLeftStickBackingPosition(){
-	return {
-		Canvas::scaleAttributes.scaledWidth / 6, 
-		(Canvas::scaleAttributes.scaledHeight / 6) * 5
-	};
-}
-
-Location TouchControls::getRightStickBackingPosition(){
-	return {
-		(Canvas::scaleAttributes.scaledWidth / 6) * 5, 
-		(Canvas::scaleAttributes.scaledHeight / 6) * 5
-	};
-}
-
 void TouchControls::updateMovementControlInput(){
 	Controls::resetMovementInputs();
 	if(m_leftStickAngleRadians >= 5.89 || m_leftStickAngleRadians < 0.393){ //337.5 -> 22.5
@@ -102,9 +88,11 @@ void TouchControls::updateAngleControlInput(){
 }
 
 void TouchControls::draw(){
-	drawStickBackings();
-	drawSticks();
-	Canvas::setGlobalAlpha(Canvas::HUD, 1);
+	if(Controls::state.touchEnabled){
+		drawStickBackings();
+		drawSticks();
+		Canvas::setGlobalAlpha(Canvas::HUD, 1);
+	}
 }
 
 void TouchControls::drawStickBackings(){
@@ -120,6 +108,20 @@ void TouchControls::drawLeftStickBacking(){
 void TouchControls::drawRightStickBacking(){
 	Location rightStickBacking = getRightStickBackingPosition();
 	drawStickBacking(rightStickBacking.x, rightStickBacking.y);
+}
+
+Location TouchControls::getLeftStickBackingPosition(){
+	return {
+		Canvas::scaleAttributes.scaledWidth / 6, 
+		(Canvas::scaleAttributes.scaledHeight / 6) * 5
+	};
+}
+
+Location TouchControls::getRightStickBackingPosition(){
+	return {
+		(Canvas::scaleAttributes.scaledWidth / 6) * 5, 
+		(Canvas::scaleAttributes.scaledHeight / 6) * 5
+	};
 }
 
 void TouchControls::drawStickBacking(int xPos, int yPos){
