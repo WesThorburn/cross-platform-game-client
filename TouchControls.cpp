@@ -18,18 +18,13 @@ void TouchControls::resetSticks(){
 }
 
 void TouchControls::updateSticks(){
-	Controls::TouchPoint* touchPoint1 = &Controls::state.touchPoints.at(0);
-	Controls::TouchPoint* touchPoint2 = &Controls::state.touchPoints.at(1);
-
-	processTouchPoint(touchPoint1);
-	processTouchPoint(touchPoint2);
+	for(int i = 0; i < Controls::state.touchPoints.size(); i++){
+		Controls::TouchPoint* touchPoint = &Controls::state.touchPoints.at(i);
+		processTouchPoint(touchPoint);
+	}
 }
 
 void TouchControls::processTouchPoint(Controls::TouchPoint* touchPoint){
-	if(!touchPoint->isActive){
-		return;
-	}
-
 	if(touchPoint->startLocation.x <= Canvas::scaleAttributes.scaledWidth * Canvas::scaleAttributes.scaleX / 2){
 		updateLeftStick(touchPoint);
 	}
@@ -56,14 +51,14 @@ void TouchControls::updateRightStick(Controls::TouchPoint* touchPoint){
 Location TouchControls::getLeftStickBackingPosition(){
 	return {
 		Canvas::scaleAttributes.scaledWidth / 6, 
-		(Canvas::scaleAttributes.scaledHeight/12) * 11
+		(Canvas::scaleAttributes.scaledHeight / 6) * 5
 	};
 }
 
 Location TouchControls::getRightStickBackingPosition(){
 	return {
 		(Canvas::scaleAttributes.scaledWidth / 6) * 5, 
-		(Canvas::scaleAttributes.scaledHeight/12) * 11
+		(Canvas::scaleAttributes.scaledHeight / 6) * 5
 	};
 }
 

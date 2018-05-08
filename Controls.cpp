@@ -56,7 +56,7 @@ namespace Controls{
 			var hud = document.getElementById("hudCanvas");
 			hud.addEventListener("touchstart", touchStart, false);
 			hud.addEventListener("touchend", touchEnd, false);
-			hud.addEventListener("touchcancel", touchCancel, false);
+			hud.addEventListener("touchcancel", touchEnd, false);
 			hud.addEventListener("touchmove", touchMove, false);
 
 			function touchStart(e){
@@ -75,11 +75,6 @@ namespace Controls{
 				}
 			}
 
-			function touchCancel(e){
-				e.preventDefault();
-				console.log("touchcancel");
-			}
-
 			function touchMove(e){
 				e.preventDefault();
 				for(var i = 0; i < e.changedTouches.length; i++){
@@ -91,49 +86,55 @@ namespace Controls{
 	}
 
 	void touchStart(int identifier, int clientX, int clientY){
-		if(identifier < 0 || identifier > 1){
+		if(state.touchPoints.size() >= 2){
 			return;
 		}
-		TouchPoint* touchPoint = &state.touchPoints.at(identifier);
-		touchPoint->startLocation = {clientX, clientY};
-		touchPoint->currentLocation = {clientX, clientY};
-		touchPoint->isActive = 1;
+
+		TouchPoint touchPoint;
+		touchPoint.identifier = identifier;
+		touchPoint.startLocation = {clientX, clientY};
+		touchPoint.currentLocation = {clientX, clientY};
+		state.touchPoints.push_back(touchPoint);
 	}
 	EMSCRIPTEN_BINDINGS(touchStart){
 		emscripten::function("touchStart", &touchStart);
 	}
 
 	void touchEnd(int identifier){
-		if(identifier < 0 || identifier > 1){
-			return;
+		for(std::vector<TouchPoint>::iterator it=state.touchPoints.begin(); it!=state.touchPoints.end();){
+			if(it->identifier == identifier){
+				it = state.touchPoints.erase(it);
+			}
+			else{
+				++it;
+			}
 		}
-		TouchPoint* touchPoint = &state.touchPoints.at(identifier);
-		touchPoint->startLocation = {0, 0};
-		touchPoint->currentLocation = {0, 0};
-		touchPoint->isActive = 0;
 		resetMovementInputs();
 	}
 	EMSCRIPTEN_BINDINGS(touchEnd){
 		emscripten::function("touchEnd", &touchEnd);
 	}
 
-	void touchCancel(int identifier){
-		std::cout << "touchCancel" << std::endl;
-	}
-	EMSCRIPTEN_BINDINGS(touchCancel){
-		emscripten::function("touchCancel", &touchCancel);
-	}
-
 	void touchMove(int identifier, int clientX, int clientY){
-		if(identifier < 0 || identifier > 1){
-			return;
+		int touchPointId = getTouchPointId(identifier);
+		if(touchPointId >= 0 && touchPointId <= 1){
+			TouchPoint* touchPoint = &state.touchPoints.at(touchPointId);
+			touchPoint->currentLocation.x = clientX;
+			touchPoint->currentLocation.y = clientY;
 		}
-		TouchPoint* touchPoint = &state.touchPoints.at(identifier);
-		touchPoint->currentLocation.x = clientX;
-		touchPoint->currentLocation.y = clientY;
 	}
 	EMSCRIPTEN_BINDINGS(touchMove){
 		emscripten::function("touchMove", &touchMove);
+	}
+
+	int getTouchPointId(int identifier){
+		for(int i = 0; i < state.touchPoints.size(); i++){
+			TouchPoint* touchPoint = &state.touchPoints.at(i);
+			if(touchPoint->identifier == identifier){
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	void onkeydown(int keyCode){
