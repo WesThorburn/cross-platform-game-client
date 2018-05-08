@@ -40,6 +40,7 @@ namespace Controls{
 	void onmouseup(int clientX, int clientY, int mouseKeyCode);
 	void onwheel(int deltaY);
 	void onfocus(bool state);
+	void resetMovementInputs();
 };
 
 #endif

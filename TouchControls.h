@@ -31,7 +31,6 @@ private:
 	Location getLeftStickBackingPosition();
 	Location getRightStickBackingPosition();
 	void updateMovementControlInput();
-	void resetMovementControls();
 	void drawStickBacking(int xPos, int yPos);
 	void drawSticks();
 	void drawLeftStick();

@@ -95,8 +95,8 @@ namespace Controls{
 			return;
 		}
 		TouchPoint* touchPoint = &state.touchPoints.at(identifier);
-		touchPoint->startLocation.x = clientX;
-		touchPoint->startLocation.y = clientY;
+		touchPoint->startLocation = {clientX, clientY};
+		touchPoint->currentLocation = {clientX, clientY};
 		touchPoint->isActive = 1;
 	}
 	EMSCRIPTEN_BINDINGS(touchStart){
@@ -111,6 +111,7 @@ namespace Controls{
 		touchPoint->startLocation = {0, 0};
 		touchPoint->currentLocation = {0, 0};
 		touchPoint->isActive = 0;
+		resetMovementInputs();
 	}
 	EMSCRIPTEN_BINDINGS(touchEnd){
 		emscripten::function("touchEnd", &touchEnd);
@@ -233,5 +234,12 @@ namespace Controls{
 	}
 	EMSCRIPTEN_BINDINGS(onfocus){
 		emscripten::function("onfocus", &onfocus);
+	}
+
+	void resetMovementInputs(){
+		state.pressingLeft = 0;
+		state.pressingRight = 0;
+		state.pressingUp = 0;
+		state.pressingDown = 0;
 	}
 };
