@@ -14,6 +14,7 @@ public:
 	int getWidth(){ return m_width; }
 	int getHeight(){ return m_height; }
 	Location getLocationOnScreen(Location rawLocation);
+	bool isVisible(Location location);
 private:
 	Location m_location = {0, 0};
 	Player* m_trackingPlayer;

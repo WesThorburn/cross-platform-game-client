@@ -92,6 +92,12 @@ namespace Canvas{
 		}, layer, x, y, radius, startAngleRadians, endAngleRadians);
 	}
 
+	void arcTo(Layer layer, int x1, int y1, int x2, int y2, int radius){
+		EM_ASM({
+			contexts[$0].arcTo($1, $2, $3, $4, $5);
+		}, layer, x1, y1, x2, y2, radius);
+	}
+
 	void moveTo(Layer layer, double x, double y){
 		EM_ASM_({
 			contexts[$0].moveTo($1, $2);
@@ -132,6 +138,27 @@ namespace Canvas{
 		EM_ASM_({
 			contexts[$0].fillRect($1, $2, $3, $4);
 		}, layer, x, y, width, height);
+	}
+
+	void drawCurvedRectangle(Layer layer, int x, int y, int width, int height, int cornerRadius){
+		if(cornerRadius < 1){
+			return;
+		}
+
+		if(width < cornerRadius*2){
+			width = cornerRadius*2;
+		}
+		beginPath(layer);
+		moveTo(layer, x + cornerRadius, y);
+		lineTo(layer, x + width - cornerRadius, y);
+		arcTo(layer, x + width, y, x + width, y + cornerRadius, cornerRadius);
+		lineTo(layer, x + width, y + height - cornerRadius);
+		arcTo(layer, x + width, y + height, x + width - cornerRadius, y + height, cornerRadius);
+		lineTo(layer, x + cornerRadius, y + height);
+		arcTo(layer, x, y + height, x, y + height - cornerRadius, cornerRadius);
+		lineTo(layer, x, y + cornerRadius);
+		arcTo(layer, x, y, x + cornerRadius, y, cornerRadius);
+		stroke(layer);
 	}
 
 	void setStrokeStyle(Layer layer, int r, int g, int b){

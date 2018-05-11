@@ -30,6 +30,7 @@ namespace Canvas{
 	void drawLine(Layer layer, int x1, int y1, int x2, int y2);
 	void beginPath(Layer layer);
 	void arc(Layer layer, int x, int y, int radius, double startAngleRadians = 0, double endAngleRadians = 2 * M_PI);
+	void arcTo(Layer layer, int x1, int y1, int x2, int y2, int radius);
 	void moveTo(Layer layer, double x, double y);
 	void lineTo(Layer layer, double x, double y);
 	void fill(Layer layer);
@@ -37,6 +38,7 @@ namespace Canvas{
 	void setLineWidth(Layer layer, int lineWidth);
 	void strokeRect(Layer layer, int x, int y, int width, int height);
 	void fillRect(Layer layer, int x, int y, int width, int height);
+	void drawCurvedRectangle(Layer layer, int x, int y, int width, int height, int cornerRadius);
 	void setStrokeStyle(Layer layer, int r, int g, int b);
 	void setFillStyle(Layer layer, int r, int g, int b);
 	void setGlobalAlpha(Layer layer, double globalAlpha);
