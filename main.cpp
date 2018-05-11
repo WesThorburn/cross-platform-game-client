@@ -2,13 +2,20 @@
 #include <stdlib.h>
 #include <time.h>
 #include "Game.h"
+#include "RenderTimer.h"
 
 Game game;
+RenderTimer timer;
 
 void gameLoop(){
+	timer.start();
+
 	game.clear();
 	game.update();
 	game.draw();
+
+	timer.stop();
+	timer.print();
 }
 
 void setGlobals(){
