@@ -88,6 +88,7 @@ window.onfocus = function(){
 };
 
 function touchStart(e){
+	e.preventDefault();
 	for(var i = 0; i < e.changedTouches.length; i++){
 		var touch = e.changedTouches[i];
 		if(!window["input"] || !e) continue;
@@ -96,6 +97,7 @@ function touchStart(e){
 }
 
 function touchEnd(e){
+	e.preventDefault();
 	for(var i = 0; i < e.changedTouches.length; i++){
 		var touch = e.changedTouches[i];
 		if(!window["input"] || !e) continue;
@@ -104,6 +106,7 @@ function touchEnd(e){
 }
 
 function touchMove(e){
+	e.preventDefault();
 	for(var i = 0; i < e.changedTouches.length; i++){
 		var touch = e.changedTouches[i];
 		if(!window["input"] || !e) continue;
@@ -111,8 +114,8 @@ function touchMove(e){
 	}
 }
 
-window.addEventListener('orientationchange', orientationchange, false);
-window.addEventListener("touchstart", touchStart, false);
-window.addEventListener("touchend", touchEnd, false);
-window.addEventListener("touchcancel", touchEnd, false);
-window.addEventListener("touchmove", touchMove, false);
+window.addEventListener('orientationchange', orientationchange);
+window.addEventListener("touchstart", touchStart, {passive: false});
+window.addEventListener("touchend", touchEnd, {passive: false});
+window.addEventListener("touchcancel", touchEnd, {passive: false});
+window.addEventListener("touchmove", touchMove, {passive: false});
