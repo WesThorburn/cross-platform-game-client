@@ -18,10 +18,14 @@ namespace Browser{
 	double getDevicePixelRatio();
 	bool isMobile();
 	void formatCanvas();
-	void addResizeListener();
-	void resize();
-	void addOrientationChangeListener();
 	void clearScreen();
+	void addOrientationChangeListener();
+	void resize();
+
+	extern "C"{
+		void orientationchange();
+		void onresize();
+	}
 };
 
 #endif

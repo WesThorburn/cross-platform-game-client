@@ -1,7 +1,6 @@
 #include <iostream>
 #include <numeric>
 #include <emscripten.h>
-#include <emscripten/bind.h>
 #include "Timer.h"
 
 Timer::Timer(){}

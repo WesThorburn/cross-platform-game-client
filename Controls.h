@@ -31,20 +31,23 @@ namespace Controls{
 	extern State state;
 
 	void initialize(bool enableMobile);
-	void addKeyEventListeners();
-	void addTouchEventListeners();
-	void touchStart(int identifier, int clientX, int clientY);
-	void touchEnd(int identifier);
-	void touchMove(int identifier, int clientX, int clientY);
 	int getTouchPointId(int identifier);
-	void onkeydown(int keyCode);
-	void onkeyup(int keyCode);
-	void onmousemove(int clientX, int clientY);
-	void onmousedown(int clientX, int clientY, int mouseKeyCode);
-	void onmouseup(int clientX, int clientY, int mouseKeyCode);
-	void onwheel(int deltaY);
-	void onfocus(bool state);
 	void resetMovementInputs();
+
+	extern "C"{
+		void onkeydown(int keyCode);
+		void onkeyup(int keyCode);
+		void onmousemove(int clientX, int clientY);
+		void onmousedown(int clientX, int clientY, int mouseKeyCode);
+		void onmouseup(int clientX, int clientY, int mouseKeyCode);
+		void onwheel(int deltaY);
+		void onblur();
+		void onfocus();
+
+		void touchstart(int identifier, int clientX, int clientY);
+		void touchend(int identifier);
+		void touchmove(int identifier, int clientX, int clientY);
+	}
 };
 
 #endif

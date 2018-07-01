@@ -1,5 +1,4 @@
 #include <emscripten.h>
-#include <emscripten/bind.h>
 #include <iostream>
 #include "Browser.h"
 #include "Canvas.h"
@@ -12,8 +11,6 @@ namespace Browser{
 		Canvas::initialize(Canvas::GAME, "gameCanvas");
 		Canvas::initialize(Canvas::HUD, "hudCanvas");
 		formatCanvas();
-		addResizeListener();
-		addOrientationChangeListener();
 	}
 
 	void setAttributes(){
@@ -65,12 +62,9 @@ namespace Browser{
 		Canvas::applyScale(Canvas::HUD);
 	}
 
-	void addResizeListener(){
-		EM_ASM({
-			window.onresize = function(){
-				Module.resize();
-			}
-		});
+	void clearScreen(){
+		Canvas::clear(Canvas::GAME);
+		Canvas::clear(Canvas::HUD);
 	}
 
 	void resize(){
@@ -79,18 +73,14 @@ namespace Browser{
 		}
 		formatCanvas();
 	}
-	EMSCRIPTEN_BINDINGS(resize){
-		emscripten::function("resize", &resize);
-	}
 
-	void addOrientationChangeListener(){
-		EM_ASM({
-			window.addEventListener('orientationchange', Module.resize());
-		});
-	}
+	extern "C"{
+		void orientationchange(){
+			resize();
+		}
 
-	void clearScreen(){
-		Canvas::clear(Canvas::GAME);
-		Canvas::clear(Canvas::HUD);
+		void onresize(){
+			resize();
+		}
 	}
 }
