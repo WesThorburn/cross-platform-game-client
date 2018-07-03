@@ -19,9 +19,29 @@ namespace Browser{
 		attributes.isMobile = isMobile();
 	}
 
+	void update(){
+		updateResizeTimer();
+	}
+
 	void updateSize(){
 		attributes.width = getWidth();
 		attributes.height = getHeight();
+	}
+
+	void startResizeTimer(){
+		attributes.followUpResizeCountdownTicks = attributes.FOLLOW_UP_RESIZE_DELAY_TICKS;
+	}
+
+	void updateResizeTimer(){
+		if(attributes.followUpResizeCountdownTicks == 0){
+			return;
+		}
+
+		--attributes.followUpResizeCountdownTicks;
+
+		if(attributes.followUpResizeCountdownTicks == 0){
+			resize();
+		}
 	}
 
 	int getWidth(){
@@ -76,10 +96,12 @@ namespace Browser{
 
 	extern "C"{
 		void orientationchange(){
+			startResizeTimer();
 			resize();
 		}
 
 		void onresize(){
+			startResizeTimer();
 			resize();
 		}
 	}

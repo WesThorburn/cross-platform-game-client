@@ -7,6 +7,7 @@ body{
     overflow: hidden;
     width: 100%;
 	position: fixed;
+	touch-action: none;
 }
 #gameCanvas{
 	z-index: 0;

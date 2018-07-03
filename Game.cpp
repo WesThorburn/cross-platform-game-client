@@ -25,6 +25,7 @@ void Game::update(){
 	m_hud.update();
 	updatePlayers();
 	m_camera.update();
+	Browser::update();
 }
 
 void Game::draw(){
