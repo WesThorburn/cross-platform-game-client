@@ -1,0 +1,3 @@
+/home/wes/Desktop/projects/cross-platform/build/CMakeFiles/rebuild_cache.dir
+/home/wes/Desktop/projects/cross-platform/build/CMakeFiles/edit_cache.dir
+/home/wes/Desktop/projects/cross-platform/build/CMakeFiles/a.dir

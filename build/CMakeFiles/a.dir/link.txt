@@ -1,0 +1,1 @@
+/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++     --pre-js ../setup/setup.js -s EXPORTED_FUNCTIONS='[_main, _onkeydown, _onkeyup, _onmousemove, _onmousedown, _onmouseup, _onwheel, _onblur, _onfocus, _touchstart, _touchend, _touchmove, _orientationchange, _onresize]' @CMakeFiles/a.dir/objects1.rsp  -o ../public/a.js 
