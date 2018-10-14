@@ -13,13 +13,18 @@ namespace Controls{
 
 	enum InputStrength{ WEAK, MEDIUM, STRONG };
 
-	struct State{
+	struct InputState{
 		bool pressingLeft = 0;
 		bool pressingRight = 0;
 		bool pressingUp = 0;
 		bool pressingDown = 0;
-		int cursorX = 0;
-		int cursorY = 0;
+		bool pressingSpace = 0;
+		int pressingNum = -1;
+		Location newCursorLocation = {0, 0};
+		Location oldCursorLocation = {0, 0};
+		Location relativeCursorLocation = {0, 0};
+		Location clickLocation = {};
+		double cursorAngle = 0.0;
 		bool leftClicking = 0;
 		bool rightClicking = 0;
 		bool focus = 1;
@@ -28,11 +33,32 @@ namespace Controls{
 		double inputAngleRadians = 0.0;
 		InputStrength movementInputStrength = STRONG;
 	};
-	extern State state;
 
-	void initialize(bool enableMobile);
+	struct HudState{
+		Location hudCursorLocation = {};
+		Location hudClickLocation = {};
+		bool hoveringOnHudElement = 0;
+		bool clickFired = 0;
+		bool spawnClicked = 0;
+		int selectedHudBox = 1;
+	};
+
+	extern InputState inputState;
+	extern HudState hudState;
+
+	void initialize();
+	void sendStateToServer();
+	void sendCursorStateToServer();
 	int getTouchPointId(int identifier);
 	void resetMovementInputs();
+	void setPlayerRelativeCursorLocation(Location location);
+	void setGameCursorLocation(Location cursorLocation);
+	void setHudCursorLocation(Location cursorLocation);
+	void setCursorAngle(double angle);
+	void registerGameClick(Location clickLocation);
+	void registerHudClick(Location clickLocation);
+	void finishClick(Location clickLocation);
+	void resetTickVariables();
 
 	extern "C"{
 		void onkeydown(int keyCode);
@@ -48,6 +74,10 @@ namespace Controls{
 		void touchend(int identifier);
 		void touchmove(int identifier, int clientX, int clientY);
 	}
+
+	void handleDirectionalMovement(int keyCode, bool state);
+	void handleHudBoxClick(int keyCode);
+	void handleAction(int keyCode, bool state);
 };
 
 #endif

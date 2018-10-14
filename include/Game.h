@@ -3,7 +3,8 @@
 
 #include <vector>
 #include "Player.h"
-#include "ActivePlayer.h"
+#include "UserPlayer.h"
+#include "GameMode.h"
 #include "Map.h"
 #include "Hud.h"
 #include "Camera.h"
@@ -15,27 +16,32 @@ public:
 	void clear();
 	void update();
 	void draw();
+	void reset();
+	
 private:
+	GameMode m_gameMode = MODE_SPECTATING;
 	Map m_map;
-	ActivePlayer m_activePlayer;
+	UserPlayer m_userPlayer;
 	Hud m_hud;
 	Camera m_camera;
 	
 	std::vector<Player> m_players;
 
-	void spawnStartingPlayers();
+	void processUpdates();
+	void setGameMode(GameMode mode);
+	void updateHud();
+	void updatePlayers();
+	void updateUserPlayer();
+	void updatePassivePlayers();
+	void updateControls();
+	void drawPlayers();
+	void drawUserPlayer();
+	void drawPassivePlayers();
 	void createMap();
+	void createUserPlayer();
 	void createHud();
-	void createActivePlayer();
 	void createCamera();
 	void setCameraTracking();
-
-	void updatePlayers();
-	void updateActivePlayer();
-	void updatePassivePlayers();
-	void drawPlayers();
-	void drawActivePlayer();
-	void drawPassivePlayers();
 };
 
 #endif

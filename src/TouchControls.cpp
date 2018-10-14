@@ -1,14 +1,13 @@
 #include <math.h>
 #include <iostream>
 #include "TouchControls.h"
-#include "Canvas.h"
 
-TouchControls::TouchControls(): HudElement(TOUCH_CONTROLS){
-	
+TouchControls::TouchControls(): HudElement(){
+	m_verticalPosition = V_BOTTOM;
 }
 
 void TouchControls::update(){
-	if(Controls::state.touchEnabled){
+	if(Controls::inputState.touchEnabled){
 		resetSticks();
 		updateSticks();
 	}
@@ -20,8 +19,8 @@ void TouchControls::resetSticks(){
 }
 
 void TouchControls::updateSticks(){
-	for(int i = 0; i < Controls::state.touchPoints.size(); i++){
-		Controls::TouchPoint* touchPoint = &Controls::state.touchPoints.at(i);
+	for(int i = 0; i < Controls::inputState.touchPoints.size(); i++){
+		Controls::TouchPoint* touchPoint = &Controls::inputState.touchPoints.at(i);
 		processTouchPoint(touchPoint);
 	}
 }
@@ -66,54 +65,54 @@ int TouchControls::getInputDistance(Location backingLocation, Location touchLoca
 
 void TouchControls::updateMovementInputStrength(){
 	if(m_leftStickInputDistance < m_backingRadius * 0.4){
-		Controls::state.movementInputStrength = Controls::WEAK;
+		Controls::inputState.movementInputStrength = Controls::WEAK;
 	}
 	else if(m_leftStickInputDistance < m_backingRadius * 0.8){
-		Controls::state.movementInputStrength = Controls::MEDIUM;
+		Controls::inputState.movementInputStrength = Controls::MEDIUM;
 	}
 	else{
-		Controls::state.movementInputStrength = Controls::STRONG;
+		Controls::inputState.movementInputStrength = Controls::STRONG;
 	}
 }
 
 void TouchControls::updateMovementControlInput(){
 	Controls::resetMovementInputs();
 	if(m_leftStickAngleRadians >= 5.89 || m_leftStickAngleRadians < 0.393){ //337.5 -> 22.5
-		Controls::state.pressingRight = 1;
+		Controls::inputState.pressingRight = 1;
 	}
 	else if(m_leftStickAngleRadians >= 0.393 && m_leftStickAngleRadians < 1.178){ //22.5 -> 67.5
-		Controls::state.pressingRight = 1;
-		Controls::state.pressingDown = 1;
+		Controls::inputState.pressingRight = 1;
+		Controls::inputState.pressingDown = 1;
 	}
 	else if(m_leftStickAngleRadians >= 1.178 && m_leftStickAngleRadians < 1.963){ //67.5 -> 112.5
-		Controls::state.pressingDown = 1;
+		Controls::inputState.pressingDown = 1;
 	}
 	else if(m_leftStickAngleRadians >= 1.963 && m_leftStickAngleRadians < 2.749){ //112.5 -> 157.5
-		Controls::state.pressingDown = 1;
-		Controls::state.pressingLeft = 1;
+		Controls::inputState.pressingDown = 1;
+		Controls::inputState.pressingLeft = 1;
 	}
 	else if(m_leftStickAngleRadians >= 2.749 && m_leftStickAngleRadians < 3.534){ //157.5 -> 202.5
-		Controls::state.pressingLeft = 1;
+		Controls::inputState.pressingLeft = 1;
 	}
 	else if(m_leftStickAngleRadians >= 3.534 && m_leftStickAngleRadians < 4.32){ //202.5 -> 247.5
-		Controls::state.pressingUp = 1;
-		Controls::state.pressingLeft = 1;
+		Controls::inputState.pressingUp = 1;
+		Controls::inputState.pressingLeft = 1;
 	}
 	else if(m_leftStickAngleRadians >= 4.32 && m_leftStickAngleRadians < 5.105){ //247.5 -> 292.5
-		Controls::state.pressingUp = 1;
+		Controls::inputState.pressingUp = 1;
 	}
 	else if(m_leftStickAngleRadians >= 5.105 && m_leftStickAngleRadians < 5.89){ //292.5 -> 337.5
-		Controls::state.pressingUp = 1;
-		Controls::state.pressingRight = 1;
+		Controls::inputState.pressingUp = 1;
+		Controls::inputState.pressingRight = 1;
 	}
 }
 
 void TouchControls::updateAngleControlInput(){
-	Controls::state.inputAngleRadians = m_rightStickAngleRadians;
+	Controls::inputState.inputAngleRadians = m_rightStickAngleRadians;
 }
 
 void TouchControls::draw(){
-	if(Controls::state.touchEnabled){
+	if(Controls::inputState.touchEnabled){
 		drawStickBackings();
 		drawSticks();
 		Canvas::setGlobalAlpha(Canvas::HUD, 1);

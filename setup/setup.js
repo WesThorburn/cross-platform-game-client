@@ -2,7 +2,8 @@ var Module = Module || {};
 Module["postRun"] = Module["postRun"] || [];
 Module["postRun"].push((function(){
 	window["objects"] = {
-		"contexts": []
+		"contexts": [],
+		"websocket": null
 	};
 	window["input"] = {
 		"onkeydown": _onkeydown,

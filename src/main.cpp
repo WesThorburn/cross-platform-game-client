@@ -13,6 +13,7 @@ void gameLoop(){
 	game.clear();
 	game.update();
 	game.draw();
+	game.reset();
 
 	timer.stop();
 	timer.print();

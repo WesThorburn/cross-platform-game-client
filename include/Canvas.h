@@ -39,14 +39,18 @@ namespace Canvas{
 	void strokeRect(Layer layer, int x, int y, int width, int height);
 	void fillRect(Layer layer, int x, int y, int width, int height);
 	void drawCurvedRectangle(Layer layer, int x, int y, int width, int height, int cornerRadius);
+	void drawFilledCurvedRectangle(Layer layer, int x, int y, int width, int height, int cornerRadius);
 	void setStrokeStyle(Layer layer, int r, int g, int b);
 	void setFillStyle(Layer layer, int r, int g, int b);
 	void setGlobalAlpha(Layer layer, double globalAlpha);
 	void setTextAlign(Layer layer, std::string alignment);
 	void setTextBaseline(Layer layer, std::string alignment);
-	void setFontSize(Layer layer, int fontSize);
+	void setFont(Layer layer, int size, std::string variant = "");
 	void fillText(Layer layer, std::string text, int x, int y);
 	void strokeText(Layer layer, std::string text, int x, int y);
+	void setCursorDefault();
+	void setCursorText();
+	void setCursorPointer();
 };
 
 #endif

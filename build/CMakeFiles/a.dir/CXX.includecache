@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/ActivePlayer.h
-Player.h
-../include/Player.h
-Camera.h
-../include/Camera.h
-
 ../include/Browser.h
 
 ../include/Camera.h
@@ -30,6 +24,12 @@ math.h
 
 ../include/Color.h
 
+../include/Connection.h
+string
+-
+vector
+-
+
 ../include/Controls.h
 vector
 -
@@ -45,8 +45,10 @@ vector
 -
 Player.h
 ../include/Player.h
-ActivePlayer.h
-../include/ActivePlayer.h
+UserPlayer.h
+../include/UserPlayer.h
+GameMode.h
+../include/GameMode.h
 Map.h
 ../include/Map.h
 Hud.h
@@ -54,25 +56,65 @@ Hud.h
 Camera.h
 ../include/Camera.h
 
+../include/GameMode.h
+
 ../include/Hud.h
 vector
 -
+Location.h
+../include/Location.h
 HudElement.h
 ../include/HudElement.h
 Camera.h
 ../include/Camera.h
+GameMode.h
+../include/GameMode.h
+HudSelection.h
+../include/HudSelection.h
+UserPlayer.h
+../include/UserPlayer.h
+
+../include/HudBox.h
+HudElement.h
+../include/HudElement.h
+Controls.h
+../include/Controls.h
 
 ../include/HudElement.h
+iostream
+-
 string
 -
+Canvas.h
+../include/Canvas.h
+Location.h
+../include/Location.h
+GameMode.h
+../include/GameMode.h
+
+../include/HudSelection.h
+HudElement.h
+../include/HudElement.h
+HudBox.h
+../include/HudBox.h
 
 ../include/Location.h
+iostream
+-
 
 ../include/Map.h
 Camera.h
 ../include/Camera.h
 Location.h
 ../include/Location.h
+
+../include/MiniMap.h
+HudElement.h
+../include/HudElement.h
+Location.h
+../include/Location.h
+UserPlayer.h
+../include/UserPlayer.h
 
 ../include/Player.h
 stdlib.h
@@ -88,6 +130,10 @@ Camera.h
 Timer.h
 ../include/Timer.h
 
+../include/SpawnButton.h
+HudElement.h
+../include/HudElement.h
+
 ../include/Timer.h
 vector
 -
@@ -100,19 +146,21 @@ Location.h
 Controls.h
 ../include/Controls.h
 
-/home/wes/Desktop/projects/cross-platform/src/ActivePlayer.cpp
-iostream
--
+../include/UserPlayer.h
 math.h
 -
-ActivePlayer.h
-/home/wes/Desktop/projects/cross-platform/src/ActivePlayer.h
-Controls.h
-/home/wes/Desktop/projects/cross-platform/src/Controls.h
-Canvas.h
-/home/wes/Desktop/projects/cross-platform/src/Canvas.h
-Map.h
-/home/wes/Desktop/projects/cross-platform/src/Map.h
+Player.h
+../include/Player.h
+Camera.h
+../include/Camera.h
+
+../include/Util.h
+sstream
+-
+string
+-
+vector
+-
 
 /home/wes/Desktop/projects/cross-platform/src/Browser.cpp
 emscripten.h
@@ -144,6 +192,18 @@ Canvas.h
 Browser.h
 /home/wes/Desktop/projects/cross-platform/src/Browser.h
 
+/home/wes/Desktop/projects/cross-platform/src/Connection.cpp
+iostream
+-
+emscripten.h
+-
+Connection.h
+/home/wes/Desktop/projects/cross-platform/src/Connection.h
+Browser.h
+/home/wes/Desktop/projects/cross-platform/src/Browser.h
+Util.h
+/home/wes/Desktop/projects/cross-platform/src/Util.h
+
 /home/wes/Desktop/projects/cross-platform/src/Controls.cpp
 iostream
 -
@@ -151,14 +211,18 @@ emscripten.h
 -
 Controls.h
 /home/wes/Desktop/projects/cross-platform/src/Controls.h
+Browser.h
+/home/wes/Desktop/projects/cross-platform/src/Browser.h
+Canvas.h
+/home/wes/Desktop/projects/cross-platform/src/Canvas.h
+Connection.h
+/home/wes/Desktop/projects/cross-platform/src/Connection.h
 
 /home/wes/Desktop/projects/cross-platform/src/DebugVariables.cpp
 iostream
 -
 DebugVariables.h
 /home/wes/Desktop/projects/cross-platform/src/DebugVariables.h
-Canvas.h
-/home/wes/Desktop/projects/cross-platform/src/Canvas.h
 Browser.h
 /home/wes/Desktop/projects/cross-platform/src/Browser.h
 Controls.h
@@ -169,20 +233,46 @@ iostream
 -
 Game.h
 /home/wes/Desktop/projects/cross-platform/src/Game.h
+Util.h
+/home/wes/Desktop/projects/cross-platform/src/Util.h
+GameMode.h
+/home/wes/Desktop/projects/cross-platform/src/GameMode.h
 Browser.h
 /home/wes/Desktop/projects/cross-platform/src/Browser.h
 Controls.h
 /home/wes/Desktop/projects/cross-platform/src/Controls.h
+Connection.h
+/home/wes/Desktop/projects/cross-platform/src/Connection.h
 
 /home/wes/Desktop/projects/cross-platform/src/Hud.cpp
 iostream
 -
 Hud.h
 /home/wes/Desktop/projects/cross-platform/src/Hud.h
+SpawnButton.h
+/home/wes/Desktop/projects/cross-platform/src/SpawnButton.h
 DebugVariables.h
 /home/wes/Desktop/projects/cross-platform/src/DebugVariables.h
 TouchControls.h
 /home/wes/Desktop/projects/cross-platform/src/TouchControls.h
+HudSelection.h
+/home/wes/Desktop/projects/cross-platform/src/HudSelection.h
+MiniMap.h
+/home/wes/Desktop/projects/cross-platform/src/MiniMap.h
+
+/home/wes/Desktop/projects/cross-platform/src/HudBox.cpp
+HudBox.h
+/home/wes/Desktop/projects/cross-platform/src/HudBox.h
+
+/home/wes/Desktop/projects/cross-platform/src/HudElement.cpp
+HudElement.h
+/home/wes/Desktop/projects/cross-platform/src/HudElement.h
+Controls.h
+/home/wes/Desktop/projects/cross-platform/src/Controls.h
+
+/home/wes/Desktop/projects/cross-platform/src/HudSelection.cpp
+HudSelection.h
+/home/wes/Desktop/projects/cross-platform/src/HudSelection.h
 
 /home/wes/Desktop/projects/cross-platform/src/Map.cpp
 iostream
@@ -191,6 +281,12 @@ Map.h
 /home/wes/Desktop/projects/cross-platform/src/Map.h
 Canvas.h
 /home/wes/Desktop/projects/cross-platform/src/Canvas.h
+
+/home/wes/Desktop/projects/cross-platform/src/MiniMap.cpp
+Map.h
+/home/wes/Desktop/projects/cross-platform/src/Map.h
+MiniMap.h
+/home/wes/Desktop/projects/cross-platform/src/MiniMap.h
 
 /home/wes/Desktop/projects/cross-platform/src/Player.cpp
 iostream
@@ -205,6 +301,12 @@ Map.h
 /home/wes/Desktop/projects/cross-platform/src/RenderTimer.cpp
 RenderTimer.h
 /home/wes/Desktop/projects/cross-platform/src/RenderTimer.h
+
+/home/wes/Desktop/projects/cross-platform/src/SpawnButton.cpp
+SpawnButton.h
+/home/wes/Desktop/projects/cross-platform/src/SpawnButton.h
+Connection.h
+/home/wes/Desktop/projects/cross-platform/src/Connection.h
 
 /home/wes/Desktop/projects/cross-platform/src/Timer.cpp
 iostream
@@ -223,8 +325,24 @@ iostream
 -
 TouchControls.h
 /home/wes/Desktop/projects/cross-platform/src/TouchControls.h
+
+/home/wes/Desktop/projects/cross-platform/src/UserPlayer.cpp
+iostream
+-
+math.h
+-
+UserPlayer.h
+/home/wes/Desktop/projects/cross-platform/src/UserPlayer.h
+Controls.h
+/home/wes/Desktop/projects/cross-platform/src/Controls.h
 Canvas.h
 /home/wes/Desktop/projects/cross-platform/src/Canvas.h
+Map.h
+/home/wes/Desktop/projects/cross-platform/src/Map.h
+
+/home/wes/Desktop/projects/cross-platform/src/Util.cpp
+Util.h
+/home/wes/Desktop/projects/cross-platform/src/Util.h
 
 /home/wes/Desktop/projects/cross-platform/src/main.cpp
 emscripten.h

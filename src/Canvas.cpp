@@ -161,6 +161,11 @@ namespace Canvas{
 		stroke(layer);
 	}
 
+	void drawFilledCurvedRectangle(Layer layer, int x, int y, int width, int height, int cornerRadius){
+		drawCurvedRectangle(layer, x, y, width, height, cornerRadius);
+		fill(layer);
+	}
+
 	void setStrokeStyle(Layer layer, int r, int g, int b){
 		EM_ASM_({
 			contexts[$0].strokeStyle = "rgb(" + $1 + ", " + $2 + ", " + $3 + ")";
@@ -194,10 +199,10 @@ namespace Canvas{
 		}, layer, textBaseline.c_str());
 	}
 
-	void setFontSize(Layer layer, int fontSize){
+	void setFont(Layer layer, int size, std::string variant){
 		EM_ASM_({
-			contexts[$0].font = $1 + "px 'Arial', sans-serif";
-		}, layer, fontSize);
+			contexts[$0].font = UTF8ToString($2) + ' ' + $1 + "px 'Arial', sans-serif";
+		}, layer, size, variant.c_str());
 	}
 
 	void fillText(Layer layer, std::string text, int x, int y){
@@ -210,5 +215,17 @@ namespace Canvas{
 		EM_ASM_({
 			contexts[$0].strokeText(UTF8ToString($1), $2, $3);
 		}, layer, text.c_str(), x, y);
+	}
+
+	void setCursorDefault(){
+		EM_ASM(document.getElementById('hudCanvas').style.cursor = 'default');
+	}
+
+	void setCursorText(){
+		EM_ASM(document.getElementById('hudCanvas').style.cursor = 'text');
+	}
+
+	void setCursorPointer(){
+		EM_ASM(document.getElementById('hudCanvas').style.cursor = 'pointer');
 	}
 }

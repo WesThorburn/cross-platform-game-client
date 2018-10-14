@@ -27,6 +27,10 @@ namespace Browser{
 	void clearScreen();
 	void addOrientationChangeListener();
 	void resize();
+	void hideElement(std::string elementId);
+	void showElement(std::string elementId);
+	void showGame();
+	void showConnecting();
 
 	extern "C"{
 		void orientationchange();

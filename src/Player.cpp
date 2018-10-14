@@ -31,6 +31,14 @@ void Player::draw(Camera& camera){
 	Canvas::stroke(Canvas::GAME);
 }
 
+void Player::applyPrimaryUpdate(std::vector<std::string> data){
+	m_location.x = std::stoi(data[2]);
+	m_location.y = std::stoi(data[3]);
+	m_spdX = std::stoi(data[4]) / 2.4;
+	m_spdY = std::stoi(data[5]) / 2.4;
+	m_angle = std::stoi(data[6]);
+}
+
 void Player::updateSpeed(){
 	if(m_location.x < m_radius || m_location.x > Map::getMaxWidth() - m_radius){
 		m_spdX = -m_spdX;

@@ -94,6 +94,30 @@ namespace Browser{
 		formatCanvas();
 	}
 
+	void hideElement(std::string elementId){
+		EM_ASM({
+			document.getElementById(UTF8ToString($0)).style.display = 'none';
+		}, elementId.c_str());
+	}
+
+	void showElement(std::string elementId){
+		EM_ASM({
+			document.getElementById(UTF8ToString($0)).style.display = 'initial';
+		}, elementId.c_str());
+	}
+
+	void showGame(){
+		hideElement("connecting");
+		showElement("gameCanvas");
+		showElement("hudCanvas");
+	}
+
+	void showConnecting(){
+		hideElement("gameCanvas");
+		hideElement("hudCanvas");
+		showElement("connecting");
+	}
+
 	extern "C"{
 		void orientationchange(){
 			startResizeTimer();

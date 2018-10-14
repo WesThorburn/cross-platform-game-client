@@ -16,12 +16,12 @@ Location Camera::getLocationOnScreen(Location rawLocation){
 
 bool Camera::isVisible(Location location){
 	if(location.x < 0 || location.y < 0){
-		return false;
+		return 0;
 	}
 	else if(location.x > m_width || location.y > m_height){
-		return false;
+		return 0;
 	}
-	return true;
+	return 1;
 }
 
 void Camera::updateLocation(){

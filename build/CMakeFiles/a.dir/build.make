@@ -157,10 +157,60 @@ CMakeFiles/a.dir/src/Game.cpp.o.provides: CMakeFiles/a.dir/src/Game.cpp.o.requir
 CMakeFiles/a.dir/src/Game.cpp.o.provides.build: CMakeFiles/a.dir/src/Game.cpp.o
 
 
+CMakeFiles/a.dir/src/Connection.cpp.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/Connection.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
+CMakeFiles/a.dir/src/Connection.cpp.o: ../src/Connection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/a.dir/src/Connection.cpp.o"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Connection.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Connection.cpp
+
+CMakeFiles/a.dir/src/Connection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/Connection.cpp.i"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/Connection.cpp > CMakeFiles/a.dir/src/Connection.cpp.i
+
+CMakeFiles/a.dir/src/Connection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/Connection.cpp.s"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/Connection.cpp -o CMakeFiles/a.dir/src/Connection.cpp.s
+
+CMakeFiles/a.dir/src/Connection.cpp.o.requires:
+
+.PHONY : CMakeFiles/a.dir/src/Connection.cpp.o.requires
+
+CMakeFiles/a.dir/src/Connection.cpp.o.provides: CMakeFiles/a.dir/src/Connection.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Connection.cpp.o.provides.build
+.PHONY : CMakeFiles/a.dir/src/Connection.cpp.o.provides
+
+CMakeFiles/a.dir/src/Connection.cpp.o.provides.build: CMakeFiles/a.dir/src/Connection.cpp.o
+
+
+CMakeFiles/a.dir/src/UserPlayer.cpp.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/UserPlayer.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
+CMakeFiles/a.dir/src/UserPlayer.cpp.o: ../src/UserPlayer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/a.dir/src/UserPlayer.cpp.o"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/UserPlayer.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/UserPlayer.cpp
+
+CMakeFiles/a.dir/src/UserPlayer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/UserPlayer.cpp.i"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/UserPlayer.cpp > CMakeFiles/a.dir/src/UserPlayer.cpp.i
+
+CMakeFiles/a.dir/src/UserPlayer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/UserPlayer.cpp.s"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/UserPlayer.cpp -o CMakeFiles/a.dir/src/UserPlayer.cpp.s
+
+CMakeFiles/a.dir/src/UserPlayer.cpp.o.requires:
+
+.PHONY : CMakeFiles/a.dir/src/UserPlayer.cpp.o.requires
+
+CMakeFiles/a.dir/src/UserPlayer.cpp.o.provides: CMakeFiles/a.dir/src/UserPlayer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/UserPlayer.cpp.o.provides.build
+.PHONY : CMakeFiles/a.dir/src/UserPlayer.cpp.o.provides
+
+CMakeFiles/a.dir/src/UserPlayer.cpp.o.provides.build: CMakeFiles/a.dir/src/UserPlayer.cpp.o
+
+
 CMakeFiles/a.dir/src/Browser.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Browser.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/Browser.cpp.o: ../src/Browser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/a.dir/src/Browser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/a.dir/src/Browser.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Browser.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Browser.cpp
 
 CMakeFiles/a.dir/src/Browser.cpp.i: cmake_force
@@ -185,7 +235,7 @@ CMakeFiles/a.dir/src/Browser.cpp.o.provides.build: CMakeFiles/a.dir/src/Browser.
 CMakeFiles/a.dir/src/Timer.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Timer.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/Timer.cpp.o: ../src/Timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/a.dir/src/Timer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/a.dir/src/Timer.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Timer.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Timer.cpp
 
 CMakeFiles/a.dir/src/Timer.cpp.i: cmake_force
@@ -210,7 +260,7 @@ CMakeFiles/a.dir/src/Timer.cpp.o.provides.build: CMakeFiles/a.dir/src/Timer.cpp.
 CMakeFiles/a.dir/src/main.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/main.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/a.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/a.dir/src/main.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/main.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/main.cpp
 
 CMakeFiles/a.dir/src/main.cpp.i: cmake_force
@@ -232,10 +282,35 @@ CMakeFiles/a.dir/src/main.cpp.o.provides: CMakeFiles/a.dir/src/main.cpp.o.requir
 CMakeFiles/a.dir/src/main.cpp.o.provides.build: CMakeFiles/a.dir/src/main.cpp.o
 
 
+CMakeFiles/a.dir/src/MiniMap.cpp.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/MiniMap.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
+CMakeFiles/a.dir/src/MiniMap.cpp.o: ../src/MiniMap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/a.dir/src/MiniMap.cpp.o"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/MiniMap.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/MiniMap.cpp
+
+CMakeFiles/a.dir/src/MiniMap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/MiniMap.cpp.i"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/MiniMap.cpp > CMakeFiles/a.dir/src/MiniMap.cpp.i
+
+CMakeFiles/a.dir/src/MiniMap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/MiniMap.cpp.s"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/MiniMap.cpp -o CMakeFiles/a.dir/src/MiniMap.cpp.s
+
+CMakeFiles/a.dir/src/MiniMap.cpp.o.requires:
+
+.PHONY : CMakeFiles/a.dir/src/MiniMap.cpp.o.requires
+
+CMakeFiles/a.dir/src/MiniMap.cpp.o.provides: CMakeFiles/a.dir/src/MiniMap.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/MiniMap.cpp.o.provides.build
+.PHONY : CMakeFiles/a.dir/src/MiniMap.cpp.o.provides
+
+CMakeFiles/a.dir/src/MiniMap.cpp.o.provides.build: CMakeFiles/a.dir/src/MiniMap.cpp.o
+
+
 CMakeFiles/a.dir/src/Map.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Map.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/Map.cpp.o: ../src/Map.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/a.dir/src/Map.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/a.dir/src/Map.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Map.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Map.cpp
 
 CMakeFiles/a.dir/src/Map.cpp.i: cmake_force
@@ -260,7 +335,7 @@ CMakeFiles/a.dir/src/Map.cpp.o.provides.build: CMakeFiles/a.dir/src/Map.cpp.o
 CMakeFiles/a.dir/src/Camera.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Camera.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/Camera.cpp.o: ../src/Camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/a.dir/src/Camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/a.dir/src/Camera.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Camera.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Camera.cpp
 
 CMakeFiles/a.dir/src/Camera.cpp.i: cmake_force
@@ -282,10 +357,35 @@ CMakeFiles/a.dir/src/Camera.cpp.o.provides: CMakeFiles/a.dir/src/Camera.cpp.o.re
 CMakeFiles/a.dir/src/Camera.cpp.o.provides.build: CMakeFiles/a.dir/src/Camera.cpp.o
 
 
+CMakeFiles/a.dir/src/Util.cpp.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/Util.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
+CMakeFiles/a.dir/src/Util.cpp.o: ../src/Util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/a.dir/src/Util.cpp.o"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Util.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Util.cpp
+
+CMakeFiles/a.dir/src/Util.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/Util.cpp.i"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/Util.cpp > CMakeFiles/a.dir/src/Util.cpp.i
+
+CMakeFiles/a.dir/src/Util.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/Util.cpp.s"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/Util.cpp -o CMakeFiles/a.dir/src/Util.cpp.s
+
+CMakeFiles/a.dir/src/Util.cpp.o.requires:
+
+.PHONY : CMakeFiles/a.dir/src/Util.cpp.o.requires
+
+CMakeFiles/a.dir/src/Util.cpp.o.provides: CMakeFiles/a.dir/src/Util.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Util.cpp.o.provides.build
+.PHONY : CMakeFiles/a.dir/src/Util.cpp.o.provides
+
+CMakeFiles/a.dir/src/Util.cpp.o.provides.build: CMakeFiles/a.dir/src/Util.cpp.o
+
+
 CMakeFiles/a.dir/src/DebugVariables.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/DebugVariables.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/DebugVariables.cpp.o: ../src/DebugVariables.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/a.dir/src/DebugVariables.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/a.dir/src/DebugVariables.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/DebugVariables.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/DebugVariables.cpp
 
 CMakeFiles/a.dir/src/DebugVariables.cpp.i: cmake_force
@@ -310,7 +410,7 @@ CMakeFiles/a.dir/src/DebugVariables.cpp.o.provides.build: CMakeFiles/a.dir/src/D
 CMakeFiles/a.dir/src/Controls.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Controls.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/Controls.cpp.o: ../src/Controls.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/a.dir/src/Controls.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/a.dir/src/Controls.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Controls.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Controls.cpp
 
 CMakeFiles/a.dir/src/Controls.cpp.i: cmake_force
@@ -332,10 +432,35 @@ CMakeFiles/a.dir/src/Controls.cpp.o.provides: CMakeFiles/a.dir/src/Controls.cpp.
 CMakeFiles/a.dir/src/Controls.cpp.o.provides.build: CMakeFiles/a.dir/src/Controls.cpp.o
 
 
+CMakeFiles/a.dir/src/SpawnButton.cpp.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/SpawnButton.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
+CMakeFiles/a.dir/src/SpawnButton.cpp.o: ../src/SpawnButton.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/a.dir/src/SpawnButton.cpp.o"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/SpawnButton.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/SpawnButton.cpp
+
+CMakeFiles/a.dir/src/SpawnButton.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/SpawnButton.cpp.i"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/SpawnButton.cpp > CMakeFiles/a.dir/src/SpawnButton.cpp.i
+
+CMakeFiles/a.dir/src/SpawnButton.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/SpawnButton.cpp.s"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/SpawnButton.cpp -o CMakeFiles/a.dir/src/SpawnButton.cpp.s
+
+CMakeFiles/a.dir/src/SpawnButton.cpp.o.requires:
+
+.PHONY : CMakeFiles/a.dir/src/SpawnButton.cpp.o.requires
+
+CMakeFiles/a.dir/src/SpawnButton.cpp.o.provides: CMakeFiles/a.dir/src/SpawnButton.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/SpawnButton.cpp.o.provides.build
+.PHONY : CMakeFiles/a.dir/src/SpawnButton.cpp.o.provides
+
+CMakeFiles/a.dir/src/SpawnButton.cpp.o.provides.build: CMakeFiles/a.dir/src/SpawnButton.cpp.o
+
+
 CMakeFiles/a.dir/src/Player.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Player.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/Player.cpp.o: ../src/Player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/a.dir/src/Player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/a.dir/src/Player.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Player.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Player.cpp
 
 CMakeFiles/a.dir/src/Player.cpp.i: cmake_force
@@ -357,10 +482,35 @@ CMakeFiles/a.dir/src/Player.cpp.o.provides: CMakeFiles/a.dir/src/Player.cpp.o.re
 CMakeFiles/a.dir/src/Player.cpp.o.provides.build: CMakeFiles/a.dir/src/Player.cpp.o
 
 
+CMakeFiles/a.dir/src/HudBox.cpp.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/HudBox.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
+CMakeFiles/a.dir/src/HudBox.cpp.o: ../src/HudBox.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/a.dir/src/HudBox.cpp.o"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/HudBox.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/HudBox.cpp
+
+CMakeFiles/a.dir/src/HudBox.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/HudBox.cpp.i"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/HudBox.cpp > CMakeFiles/a.dir/src/HudBox.cpp.i
+
+CMakeFiles/a.dir/src/HudBox.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/HudBox.cpp.s"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/HudBox.cpp -o CMakeFiles/a.dir/src/HudBox.cpp.s
+
+CMakeFiles/a.dir/src/HudBox.cpp.o.requires:
+
+.PHONY : CMakeFiles/a.dir/src/HudBox.cpp.o.requires
+
+CMakeFiles/a.dir/src/HudBox.cpp.o.provides: CMakeFiles/a.dir/src/HudBox.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudBox.cpp.o.provides.build
+.PHONY : CMakeFiles/a.dir/src/HudBox.cpp.o.provides
+
+CMakeFiles/a.dir/src/HudBox.cpp.o.provides.build: CMakeFiles/a.dir/src/HudBox.cpp.o
+
+
 CMakeFiles/a.dir/src/Hud.cpp.o: CMakeFiles/a.dir/flags.make
 CMakeFiles/a.dir/src/Hud.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
 CMakeFiles/a.dir/src/Hud.cpp.o: ../src/Hud.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/a.dir/src/Hud.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/a.dir/src/Hud.cpp.o"
 	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/Hud.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/Hud.cpp
 
 CMakeFiles/a.dir/src/Hud.cpp.i: cmake_force
@@ -382,29 +532,54 @@ CMakeFiles/a.dir/src/Hud.cpp.o.provides: CMakeFiles/a.dir/src/Hud.cpp.o.requires
 CMakeFiles/a.dir/src/Hud.cpp.o.provides.build: CMakeFiles/a.dir/src/Hud.cpp.o
 
 
-CMakeFiles/a.dir/src/ActivePlayer.cpp.o: CMakeFiles/a.dir/flags.make
-CMakeFiles/a.dir/src/ActivePlayer.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
-CMakeFiles/a.dir/src/ActivePlayer.cpp.o: ../src/ActivePlayer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/a.dir/src/ActivePlayer.cpp.o"
-	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/ActivePlayer.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/ActivePlayer.cpp
+CMakeFiles/a.dir/src/HudSelection.cpp.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/HudSelection.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
+CMakeFiles/a.dir/src/HudSelection.cpp.o: ../src/HudSelection.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/a.dir/src/HudSelection.cpp.o"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/HudSelection.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/HudSelection.cpp
 
-CMakeFiles/a.dir/src/ActivePlayer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/ActivePlayer.cpp.i"
-	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/ActivePlayer.cpp > CMakeFiles/a.dir/src/ActivePlayer.cpp.i
+CMakeFiles/a.dir/src/HudSelection.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/HudSelection.cpp.i"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/HudSelection.cpp > CMakeFiles/a.dir/src/HudSelection.cpp.i
 
-CMakeFiles/a.dir/src/ActivePlayer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/ActivePlayer.cpp.s"
-	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/ActivePlayer.cpp -o CMakeFiles/a.dir/src/ActivePlayer.cpp.s
+CMakeFiles/a.dir/src/HudSelection.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/HudSelection.cpp.s"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/HudSelection.cpp -o CMakeFiles/a.dir/src/HudSelection.cpp.s
 
-CMakeFiles/a.dir/src/ActivePlayer.cpp.o.requires:
+CMakeFiles/a.dir/src/HudSelection.cpp.o.requires:
 
-.PHONY : CMakeFiles/a.dir/src/ActivePlayer.cpp.o.requires
+.PHONY : CMakeFiles/a.dir/src/HudSelection.cpp.o.requires
 
-CMakeFiles/a.dir/src/ActivePlayer.cpp.o.provides: CMakeFiles/a.dir/src/ActivePlayer.cpp.o.requires
-	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/ActivePlayer.cpp.o.provides.build
-.PHONY : CMakeFiles/a.dir/src/ActivePlayer.cpp.o.provides
+CMakeFiles/a.dir/src/HudSelection.cpp.o.provides: CMakeFiles/a.dir/src/HudSelection.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudSelection.cpp.o.provides.build
+.PHONY : CMakeFiles/a.dir/src/HudSelection.cpp.o.provides
 
-CMakeFiles/a.dir/src/ActivePlayer.cpp.o.provides.build: CMakeFiles/a.dir/src/ActivePlayer.cpp.o
+CMakeFiles/a.dir/src/HudSelection.cpp.o.provides.build: CMakeFiles/a.dir/src/HudSelection.cpp.o
+
+
+CMakeFiles/a.dir/src/HudElement.cpp.o: CMakeFiles/a.dir/flags.make
+CMakeFiles/a.dir/src/HudElement.cpp.o: CMakeFiles/a.dir/includes_CXX.rsp
+CMakeFiles/a.dir/src/HudElement.cpp.o: ../src/HudElement.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/a.dir/src/HudElement.cpp.o"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/a.dir/src/HudElement.cpp.o -c /home/wes/Desktop/projects/cross-platform/src/HudElement.cpp
+
+CMakeFiles/a.dir/src/HudElement.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/a.dir/src/HudElement.cpp.i"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wes/Desktop/projects/cross-platform/src/HudElement.cpp > CMakeFiles/a.dir/src/HudElement.cpp.i
+
+CMakeFiles/a.dir/src/HudElement.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/a.dir/src/HudElement.cpp.s"
+	/home/wes/Desktop/projects/emsdk/emscripten/1.38.0/em++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wes/Desktop/projects/cross-platform/src/HudElement.cpp -o CMakeFiles/a.dir/src/HudElement.cpp.s
+
+CMakeFiles/a.dir/src/HudElement.cpp.o.requires:
+
+.PHONY : CMakeFiles/a.dir/src/HudElement.cpp.o.requires
+
+CMakeFiles/a.dir/src/HudElement.cpp.o.provides: CMakeFiles/a.dir/src/HudElement.cpp.o.requires
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudElement.cpp.o.provides.build
+.PHONY : CMakeFiles/a.dir/src/HudElement.cpp.o.provides
+
+CMakeFiles/a.dir/src/HudElement.cpp.o.provides.build: CMakeFiles/a.dir/src/HudElement.cpp.o
 
 
 # Object files for target a
@@ -413,16 +588,23 @@ a_OBJECTS = \
 "CMakeFiles/a.dir/src/TouchControls.cpp.o" \
 "CMakeFiles/a.dir/src/RenderTimer.cpp.o" \
 "CMakeFiles/a.dir/src/Game.cpp.o" \
+"CMakeFiles/a.dir/src/Connection.cpp.o" \
+"CMakeFiles/a.dir/src/UserPlayer.cpp.o" \
 "CMakeFiles/a.dir/src/Browser.cpp.o" \
 "CMakeFiles/a.dir/src/Timer.cpp.o" \
 "CMakeFiles/a.dir/src/main.cpp.o" \
+"CMakeFiles/a.dir/src/MiniMap.cpp.o" \
 "CMakeFiles/a.dir/src/Map.cpp.o" \
 "CMakeFiles/a.dir/src/Camera.cpp.o" \
+"CMakeFiles/a.dir/src/Util.cpp.o" \
 "CMakeFiles/a.dir/src/DebugVariables.cpp.o" \
 "CMakeFiles/a.dir/src/Controls.cpp.o" \
+"CMakeFiles/a.dir/src/SpawnButton.cpp.o" \
 "CMakeFiles/a.dir/src/Player.cpp.o" \
+"CMakeFiles/a.dir/src/HudBox.cpp.o" \
 "CMakeFiles/a.dir/src/Hud.cpp.o" \
-"CMakeFiles/a.dir/src/ActivePlayer.cpp.o"
+"CMakeFiles/a.dir/src/HudSelection.cpp.o" \
+"CMakeFiles/a.dir/src/HudElement.cpp.o"
 
 # External object files for target a
 a_EXTERNAL_OBJECTS =
@@ -431,20 +613,27 @@ a_EXTERNAL_OBJECTS =
 ../public/a.js: CMakeFiles/a.dir/src/TouchControls.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/RenderTimer.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/Game.cpp.o
+../public/a.js: CMakeFiles/a.dir/src/Connection.cpp.o
+../public/a.js: CMakeFiles/a.dir/src/UserPlayer.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/Browser.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/Timer.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/main.cpp.o
+../public/a.js: CMakeFiles/a.dir/src/MiniMap.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/Map.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/Camera.cpp.o
+../public/a.js: CMakeFiles/a.dir/src/Util.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/DebugVariables.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/Controls.cpp.o
+../public/a.js: CMakeFiles/a.dir/src/SpawnButton.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/Player.cpp.o
+../public/a.js: CMakeFiles/a.dir/src/HudBox.cpp.o
 ../public/a.js: CMakeFiles/a.dir/src/Hud.cpp.o
-../public/a.js: CMakeFiles/a.dir/src/ActivePlayer.cpp.o
+../public/a.js: CMakeFiles/a.dir/src/HudSelection.cpp.o
+../public/a.js: CMakeFiles/a.dir/src/HudElement.cpp.o
 ../public/a.js: CMakeFiles/a.dir/build.make
 ../public/a.js: CMakeFiles/a.dir/objects1.rsp
 ../public/a.js: CMakeFiles/a.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable ../public/a.js"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wes/Desktop/projects/cross-platform/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable ../public/a.js"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/a.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -456,16 +645,23 @@ CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Canvas.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/TouchControls.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/RenderTimer.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Game.cpp.o.requires
+CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Connection.cpp.o.requires
+CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/UserPlayer.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Browser.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Timer.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/main.cpp.o.requires
+CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/MiniMap.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Map.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Camera.cpp.o.requires
+CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Util.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/DebugVariables.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Controls.cpp.o.requires
+CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/SpawnButton.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Player.cpp.o.requires
+CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/HudBox.cpp.o.requires
 CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/Hud.cpp.o.requires
-CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/ActivePlayer.cpp.o.requires
+CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/HudSelection.cpp.o.requires
+CMakeFiles/a.dir/requires: CMakeFiles/a.dir/src/HudElement.cpp.o.requires
 
 .PHONY : CMakeFiles/a.dir/requires
 

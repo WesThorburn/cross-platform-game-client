@@ -13,10 +13,15 @@
 		<link rel="stylesheet" type="text/css" href="a.css"/>
 	</head>
 	<body oncontextmenu="return false;">
+		<script src="isMobile.min.js"></script>
+		<script src="network.js"></script>
+
+		<h1 id="connecting" class="loading-connecting">Connecting...</h1>
+		<h1 id="loading" class="loading-connecting">Loading...</h1>
+
 		<canvas id="gameCanvas"></canvas>
 		<canvas id="hudCanvas"></canvas>
-		<script></script>
-		<script src="isMobile.min.js"></script>
+
 		<script>
 			!function(e, t){
 				console.log("Loading game client...");

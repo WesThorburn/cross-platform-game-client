@@ -123,33 +123,6 @@ a/fast:
 	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/build
 .PHONY : a/fast
 
-src/ActivePlayer.o: src/ActivePlayer.cpp.o
-
-.PHONY : src/ActivePlayer.o
-
-# target to build an object file
-src/ActivePlayer.cpp.o:
-	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/ActivePlayer.cpp.o
-.PHONY : src/ActivePlayer.cpp.o
-
-src/ActivePlayer.i: src/ActivePlayer.cpp.i
-
-.PHONY : src/ActivePlayer.i
-
-# target to preprocess a source file
-src/ActivePlayer.cpp.i:
-	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/ActivePlayer.cpp.i
-.PHONY : src/ActivePlayer.cpp.i
-
-src/ActivePlayer.s: src/ActivePlayer.cpp.s
-
-.PHONY : src/ActivePlayer.s
-
-# target to generate assembly for a file
-src/ActivePlayer.cpp.s:
-	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/ActivePlayer.cpp.s
-.PHONY : src/ActivePlayer.cpp.s
-
 src/Browser.o: src/Browser.cpp.o
 
 .PHONY : src/Browser.o
@@ -230,6 +203,33 @@ src/Canvas.s: src/Canvas.cpp.s
 src/Canvas.cpp.s:
 	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Canvas.cpp.s
 .PHONY : src/Canvas.cpp.s
+
+src/Connection.o: src/Connection.cpp.o
+
+.PHONY : src/Connection.o
+
+# target to build an object file
+src/Connection.cpp.o:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Connection.cpp.o
+.PHONY : src/Connection.cpp.o
+
+src/Connection.i: src/Connection.cpp.i
+
+.PHONY : src/Connection.i
+
+# target to preprocess a source file
+src/Connection.cpp.i:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Connection.cpp.i
+.PHONY : src/Connection.cpp.i
+
+src/Connection.s: src/Connection.cpp.s
+
+.PHONY : src/Connection.s
+
+# target to generate assembly for a file
+src/Connection.cpp.s:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Connection.cpp.s
+.PHONY : src/Connection.cpp.s
 
 src/Controls.o: src/Controls.cpp.o
 
@@ -339,6 +339,87 @@ src/Hud.cpp.s:
 	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Hud.cpp.s
 .PHONY : src/Hud.cpp.s
 
+src/HudBox.o: src/HudBox.cpp.o
+
+.PHONY : src/HudBox.o
+
+# target to build an object file
+src/HudBox.cpp.o:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudBox.cpp.o
+.PHONY : src/HudBox.cpp.o
+
+src/HudBox.i: src/HudBox.cpp.i
+
+.PHONY : src/HudBox.i
+
+# target to preprocess a source file
+src/HudBox.cpp.i:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudBox.cpp.i
+.PHONY : src/HudBox.cpp.i
+
+src/HudBox.s: src/HudBox.cpp.s
+
+.PHONY : src/HudBox.s
+
+# target to generate assembly for a file
+src/HudBox.cpp.s:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudBox.cpp.s
+.PHONY : src/HudBox.cpp.s
+
+src/HudElement.o: src/HudElement.cpp.o
+
+.PHONY : src/HudElement.o
+
+# target to build an object file
+src/HudElement.cpp.o:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudElement.cpp.o
+.PHONY : src/HudElement.cpp.o
+
+src/HudElement.i: src/HudElement.cpp.i
+
+.PHONY : src/HudElement.i
+
+# target to preprocess a source file
+src/HudElement.cpp.i:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudElement.cpp.i
+.PHONY : src/HudElement.cpp.i
+
+src/HudElement.s: src/HudElement.cpp.s
+
+.PHONY : src/HudElement.s
+
+# target to generate assembly for a file
+src/HudElement.cpp.s:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudElement.cpp.s
+.PHONY : src/HudElement.cpp.s
+
+src/HudSelection.o: src/HudSelection.cpp.o
+
+.PHONY : src/HudSelection.o
+
+# target to build an object file
+src/HudSelection.cpp.o:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudSelection.cpp.o
+.PHONY : src/HudSelection.cpp.o
+
+src/HudSelection.i: src/HudSelection.cpp.i
+
+.PHONY : src/HudSelection.i
+
+# target to preprocess a source file
+src/HudSelection.cpp.i:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudSelection.cpp.i
+.PHONY : src/HudSelection.cpp.i
+
+src/HudSelection.s: src/HudSelection.cpp.s
+
+.PHONY : src/HudSelection.s
+
+# target to generate assembly for a file
+src/HudSelection.cpp.s:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/HudSelection.cpp.s
+.PHONY : src/HudSelection.cpp.s
+
 src/Map.o: src/Map.cpp.o
 
 .PHONY : src/Map.o
@@ -365,6 +446,33 @@ src/Map.s: src/Map.cpp.s
 src/Map.cpp.s:
 	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Map.cpp.s
 .PHONY : src/Map.cpp.s
+
+src/MiniMap.o: src/MiniMap.cpp.o
+
+.PHONY : src/MiniMap.o
+
+# target to build an object file
+src/MiniMap.cpp.o:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/MiniMap.cpp.o
+.PHONY : src/MiniMap.cpp.o
+
+src/MiniMap.i: src/MiniMap.cpp.i
+
+.PHONY : src/MiniMap.i
+
+# target to preprocess a source file
+src/MiniMap.cpp.i:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/MiniMap.cpp.i
+.PHONY : src/MiniMap.cpp.i
+
+src/MiniMap.s: src/MiniMap.cpp.s
+
+.PHONY : src/MiniMap.s
+
+# target to generate assembly for a file
+src/MiniMap.cpp.s:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/MiniMap.cpp.s
+.PHONY : src/MiniMap.cpp.s
 
 src/Player.o: src/Player.cpp.o
 
@@ -420,6 +528,33 @@ src/RenderTimer.cpp.s:
 	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/RenderTimer.cpp.s
 .PHONY : src/RenderTimer.cpp.s
 
+src/SpawnButton.o: src/SpawnButton.cpp.o
+
+.PHONY : src/SpawnButton.o
+
+# target to build an object file
+src/SpawnButton.cpp.o:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/SpawnButton.cpp.o
+.PHONY : src/SpawnButton.cpp.o
+
+src/SpawnButton.i: src/SpawnButton.cpp.i
+
+.PHONY : src/SpawnButton.i
+
+# target to preprocess a source file
+src/SpawnButton.cpp.i:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/SpawnButton.cpp.i
+.PHONY : src/SpawnButton.cpp.i
+
+src/SpawnButton.s: src/SpawnButton.cpp.s
+
+.PHONY : src/SpawnButton.s
+
+# target to generate assembly for a file
+src/SpawnButton.cpp.s:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/SpawnButton.cpp.s
+.PHONY : src/SpawnButton.cpp.s
+
 src/Timer.o: src/Timer.cpp.o
 
 .PHONY : src/Timer.o
@@ -474,6 +609,60 @@ src/TouchControls.cpp.s:
 	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/TouchControls.cpp.s
 .PHONY : src/TouchControls.cpp.s
 
+src/UserPlayer.o: src/UserPlayer.cpp.o
+
+.PHONY : src/UserPlayer.o
+
+# target to build an object file
+src/UserPlayer.cpp.o:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/UserPlayer.cpp.o
+.PHONY : src/UserPlayer.cpp.o
+
+src/UserPlayer.i: src/UserPlayer.cpp.i
+
+.PHONY : src/UserPlayer.i
+
+# target to preprocess a source file
+src/UserPlayer.cpp.i:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/UserPlayer.cpp.i
+.PHONY : src/UserPlayer.cpp.i
+
+src/UserPlayer.s: src/UserPlayer.cpp.s
+
+.PHONY : src/UserPlayer.s
+
+# target to generate assembly for a file
+src/UserPlayer.cpp.s:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/UserPlayer.cpp.s
+.PHONY : src/UserPlayer.cpp.s
+
+src/Util.o: src/Util.cpp.o
+
+.PHONY : src/Util.o
+
+# target to build an object file
+src/Util.cpp.o:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Util.cpp.o
+.PHONY : src/Util.cpp.o
+
+src/Util.i: src/Util.cpp.i
+
+.PHONY : src/Util.i
+
+# target to preprocess a source file
+src/Util.cpp.i:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Util.cpp.i
+.PHONY : src/Util.cpp.i
+
+src/Util.s: src/Util.cpp.s
+
+.PHONY : src/Util.s
+
+# target to generate assembly for a file
+src/Util.cpp.s:
+	$(MAKE) -f CMakeFiles/a.dir/build.make CMakeFiles/a.dir/src/Util.cpp.s
+.PHONY : src/Util.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -510,9 +699,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... a"
-	@echo "... src/ActivePlayer.o"
-	@echo "... src/ActivePlayer.i"
-	@echo "... src/ActivePlayer.s"
 	@echo "... src/Browser.o"
 	@echo "... src/Browser.i"
 	@echo "... src/Browser.s"
@@ -522,6 +708,9 @@ help:
 	@echo "... src/Canvas.o"
 	@echo "... src/Canvas.i"
 	@echo "... src/Canvas.s"
+	@echo "... src/Connection.o"
+	@echo "... src/Connection.i"
+	@echo "... src/Connection.s"
 	@echo "... src/Controls.o"
 	@echo "... src/Controls.i"
 	@echo "... src/Controls.s"
@@ -534,21 +723,42 @@ help:
 	@echo "... src/Hud.o"
 	@echo "... src/Hud.i"
 	@echo "... src/Hud.s"
+	@echo "... src/HudBox.o"
+	@echo "... src/HudBox.i"
+	@echo "... src/HudBox.s"
+	@echo "... src/HudElement.o"
+	@echo "... src/HudElement.i"
+	@echo "... src/HudElement.s"
+	@echo "... src/HudSelection.o"
+	@echo "... src/HudSelection.i"
+	@echo "... src/HudSelection.s"
 	@echo "... src/Map.o"
 	@echo "... src/Map.i"
 	@echo "... src/Map.s"
+	@echo "... src/MiniMap.o"
+	@echo "... src/MiniMap.i"
+	@echo "... src/MiniMap.s"
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
 	@echo "... src/RenderTimer.o"
 	@echo "... src/RenderTimer.i"
 	@echo "... src/RenderTimer.s"
+	@echo "... src/SpawnButton.o"
+	@echo "... src/SpawnButton.i"
+	@echo "... src/SpawnButton.s"
 	@echo "... src/Timer.o"
 	@echo "... src/Timer.i"
 	@echo "... src/Timer.s"
 	@echo "... src/TouchControls.o"
 	@echo "... src/TouchControls.i"
 	@echo "... src/TouchControls.s"
+	@echo "... src/UserPlayer.o"
+	@echo "... src/UserPlayer.i"
+	@echo "... src/UserPlayer.s"
+	@echo "... src/Util.o"
+	@echo "... src/Util.i"
+	@echo "... src/Util.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
